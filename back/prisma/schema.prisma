@@ -1,0 +1,51 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id_user  Int    @id @default(autoincrement())
+  email    String @db.VarChar(100)
+  password String @db.VarChar(150)
+  Post     Post[]
+}
+
+model Categoria {
+  id_categoria     Int             @id @default(autoincrement())
+  nombre_categoria String          @db.VarChar(150)
+  Sub_Categoria    Sub_Categoria[]
+}
+
+model Sub_Categoria {
+  id_sub_categoria  Int       @id @default(autoincrement())
+  categoriaId       Int
+  categoriaRelacion Categoria @relation(fields: [categoriaId], references: [id_categoria])
+  Post              Post[]
+}
+
+model Multimedia {
+  id_multimedia Int    @id @default(autoincrement())
+  url_recurso   String @db.VarChar(200)
+  Post          Post[]
+}
+
+model Post {
+  id_post            Int           @id @default(autoincrement())
+  sub_categoriaId    Int
+  multimediaId       Int
+  userId             Int
+  categoriaRelacion  Sub_Categoria @relation(fields: [sub_categoriaId], references: [id_sub_categoria])
+  multimediaRelacion Multimedia    @relation(fields: [multimediaId], references: [id_multimedia])
+  userRelacion       User          @relation(fields: [userId], references: [id_user])
+  titulo             String
+  Descripcion        String?       @db.VarChar(150)
+  contenido          String        @db.VarChar(5000)
+  estado             Boolean       @default(true)
+  prioridad          Int
+  fecha              DateTime      @default(now())
+  ubicacion          String
+}
