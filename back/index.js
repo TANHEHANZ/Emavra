@@ -1,21 +1,19 @@
-const express = require('express')
-const cors = require('cors')
-const bodyParser = require('body-parser')
-const app = express()
-const port = 3000
+const express = require("express");
+const cors = require("cors");
+const bodyParser = require("body-parser");
+const app = express();
+const port = 3000;
+const userRoutes = require("./src/routes/RouteUser");
+const ProyectRoutes = require("./src/routes/RouteProyectos");
 
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use(cors())
-app.use(bodyParser.json())
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
-app.get('/products/:id', function (req, res, next) {
-    res.json({msg: 'This is CORS-enabled for all origins!'})
-  })
-  
+app.use(cors());
+app.use(bodyParser.json());
+
+app.use("/api/users", userRoutes);
+app.use("/api/proyect", ProyectRoutes);
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+  console.log(`Example app listening on port ${port}`);
+});
