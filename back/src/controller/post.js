@@ -1,5 +1,4 @@
 const { PrismaClient } = require("@prisma/client");
-const { connect } = require("../routes/RouteUser");
 const prisma = new PrismaClient();
 
 const PostController = {
