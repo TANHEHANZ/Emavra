@@ -1,4 +1,5 @@
 @import "./variables.css";
+@import "./animaciones.css";
 
 nav {
   display: flex;
@@ -7,18 +8,26 @@ nav {
   margin: 0 auto;
   height: 12vh;
   align-items: center;
+  & img {
+    width: 170px;
+    height: 80px;
+    object-fit: cover;
+  }
 }
 
-img {
-  width: 170px;
-  height: 80px;
-  object-fit: cover;
-}
 li {
   list-style: none;
-  height:auto ;
-  padding:0 1em 0 1em;
+  height: auto;
+  padding: 0 1em 0 1em;
   position: relative;
+  line-height: 0.8;
+  & div {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+  }
 }
 .nav {
   width: 80vw;
@@ -49,6 +58,7 @@ li {
   background-color: var(--white);
   padding: 0.1em;
   left: 0;
+  animation: swing-in-top-fwd 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
   & > li {
     width: 250px;
     height: 40px;
@@ -106,10 +116,21 @@ li {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 1em;
   color: var(--primary-color);
   & input {
+    width: 100%;
     border: none;
     border-bottom: 2px solid var(--primary-color);
+    outline: none;
+    animation: widthMax 2s ease;
+  }
+}
+
+@keyframes widthMax {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
   }
 }

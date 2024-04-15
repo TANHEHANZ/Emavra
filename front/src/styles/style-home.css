@@ -1,0 +1,29 @@
+@import "./variables.css";
+@import "./animaciones.css";
+
+.home {
+  width: 95vw;
+  display: flex;
+  margin: 0 auto;
+}
+
+.title {
+  width: 40%;
+}
+.slider {
+  width: 60%;
+  height: 520px;
+  overflow: hidden;
+  display: flex;
+  gap: 1em;
+  & img {
+    width: 100px;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.938em;
+    &:nth-child(1) {
+      width: calc(50%);
+    }
+    transition: all ease-in 2s;
+  }
+}

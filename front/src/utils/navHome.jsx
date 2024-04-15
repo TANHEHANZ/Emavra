@@ -1,22 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
-const Nav = ({ links, className }) => {
+const Nav = ({ links, className, desacivando }) => {
   const navigate = useNavigate();
   const location = useLocation();
-  const [active, setActive] = useState(null);
-
+  const [active, setActive] = useState("");
   const navigateTo = (path) => {
-    setActive(path); 
+    setActive(path);
     navigate(path);
   };
 
+//   useEffect(() => {}, [path]);
+
   const handleParentClick = (path) => {
-    if (active === path) {
-      setActive(null);
-    } else {
-      setActive(path);
-    }
+    setActive(active === path ? null : path);
   };
 
   const isActiveLink = (path) => {
@@ -27,10 +24,7 @@ const Nav = ({ links, className }) => {
     <ul className={className}>
       {links &&
         links.map((navegacion, i) => (
-          <li key={i} 
-          
-          className={isActiveLink(navegacion.path) ? "active" : ""}
-          >
+          <li key={i} className={isActiveLink(navegacion.path) ? "active" : ""}>
             <div
               onClick={() => {
                 handleParentClick(navegacion.path);
@@ -41,8 +35,12 @@ const Nav = ({ links, className }) => {
             </div>
             {navegacion.children && (
               <div>
-                {active === navegacion.path && (
-                  <Nav links={navegacion.children} className="child-nav" />
+                {active === navegacion.path && !desacivando && (
+                  <Nav
+                    links={navegacion.children}
+                    className="child-nav"
+                    desacivando={true}
+                  />
                 )}
               </div>
             )}
