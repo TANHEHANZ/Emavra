@@ -34,5 +34,6 @@ const UserController = {
       capError(error, res);
     }
   },
+
 };
 module.exports = UserController;
