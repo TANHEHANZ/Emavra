@@ -16,16 +16,16 @@ img {
 }
 li {
   list-style: none;
-  height: 1em;
+  height:auto ;
+  padding:0 1em 0 1em;
+  position: relative;
 }
 .nav {
   width: 80vw;
-  position: relative;
   height: 100%;
   & > ul {
     display: flex;
     flex-direction: row;
-    gap: 1em;
     align-items: center;
     height: 100%;
     & li {
@@ -39,16 +39,16 @@ li {
   align-items: center;
   background-color: var(--primary-color);
   height: 100%;
-  padding: 1em;
   color: var(--white);
+  box-shadow: 0px 0px 8px #0005;
 }
 .child-nav {
   position: absolute;
-  top: 10vh;
+  top: 12vh;
   box-shadow: 0px 0px 4px #0005;
   background-color: var(--white);
   padding: 0.1em;
-  transform: translateX(-110px);
+  left: 0;
   & > li {
     width: 250px;
     height: 40px;
