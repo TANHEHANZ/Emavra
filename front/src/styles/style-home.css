@@ -1,14 +1,62 @@
 @import "./variables.css";
 @import "./animaciones.css";
 
-.home {
-  width: 95vw;
+.contenido {
+  width: 100%;
   display: flex;
   margin: 0 auto;
+  align-items: center;
+  flex-direction: row;
+  height: 100%;
+  min-height: 70vh;
 }
-
 .title {
   width: 40%;
+  display: flex;
+  padding: 1.5em;
+  flex-direction: column;
+  gap: 1em;
+  margin-left: 3.5em;
+}
+.title h1 {
+  width: 100%;
+  font-size: 32px;
+  animation: slide-in-left 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+.title strong {
+  display: flex;
+  display: block;
+  & div {
+    display: inline;
+    background-color: var(--secondary-color);
+    color: var(--white);
+    padding: 0.1em;
+  }
+}
+.title p {
+  font-size: 0.9em;
+  width: 45%;
+  animation: slide-in-left 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+.acciones {
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+}
+.acciones button {
+  border: none;
+  padding: 1em;
+  width: 160px;
+  border-radius: 5px;
+  color: var(--white);
+  font-weight: 600;
+  cursor: pointer;
+}
+.acciones button:nth-child(1) {
+  background-color: var(--secondary-color);
+}
+.acciones button:nth-child(2) {
+  background-color: var(--primary-color);
 }
 .slider {
   width: 60%;
@@ -26,4 +74,125 @@
     }
     transition: all ease-in 2s;
   }
+}
+
+/* seccion noticias */
+.noticias {
+  display: flex;
+  flex-direction: column;
+  padding: 2em 0 2em 0;
+  & > h2 {
+    width: 300px;
+    padding: 0.2em;
+    position: relative;
+    color: var(--white);
+    font-size: 28px;
+  }
+}
+.noticias h2::before {
+  content: "";
+  position: absolute;
+  background-color: var(--secondary-color);
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  left: -10%;
+  top: 0;
+  border-radius: 0 5px 5px 0;
+}
+.carrucel {
+  width: 80%;
+  margin: 2em auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3em;
+}
+.carrucel img {
+  width: 640px;
+  height: 360px;
+  object-fit: cover;
+}
+.carrucel-contenido {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  align-items: center;
+}
+.carrucel-contenido h3 {
+  color: var(--primary-color);
+}
+.carrucel-contenido > button {
+  border: none;
+  background-color: var(--secondary-color);
+  color: var(--white);
+  font-size: 0.9em;
+  padding: 0.5em 2em;
+  align-self: flex-end;
+  cursor: pointer;
+}
+.carrucel > button {
+  width: 60px;
+  height: 60px;
+  border-radius: 15px;
+  font-size: 28px;
+  color: var(--white);
+  background-color: var(--primary-color);
+  border: none;
+  cursor: pointer;
+}
+
+/* ----------------proyectos ------------------------ */
+
+.proyectos {
+  width: 100%;
+  height: 80vh;
+  background-color: var(--primary-color);
+  color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3em;
+}
+.datosProyecto {
+  width: 20%;
+  display: flex;
+  justify-content: space-around;
+  align-items: start;
+  flex-direction: column;
+  height: 50%;
+}
+.datosProyecto h3 {
+  font-size: 32px;
+}
+.datosProyecto button {
+  border: none;
+  background-color: var(--secondary-color);
+  color: var(--white);
+  font-size: 0.9em;
+  padding: 0.5em 2em;
+  align-self: flex-end;
+  cursor: pointer;
+}
+
+.galeriaImg {
+  width: 60%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  overflow-y: scroll;
+}
+.galeriaImg img {
+  width: 380px;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px #0005;
+}
+.galeriaImg img:nth-child(2n) {
+  transform: translateY(-150px);
 }

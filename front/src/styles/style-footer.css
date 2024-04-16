@@ -1,0 +1,86 @@
+.footer {
+  height: 50vh;
+  background-color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  gap: 2em;
+}
+.contenedor {
+  display: flex;
+  width: 90%;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 3em auto;
+}
+.footer section > img {
+  width: 170px;
+  height: 80px;
+  object-fit: cover;
+}
+.enlaces {
+  display: flex;
+  width: 40%;
+  height: 100%;
+  gap: 2em;
+  flex-wrap: wrap;
+}
+.enlaces p {
+  width: 40%;
+  font-size: 100;
+}
+
+strong {
+  display: block;
+  width: 100%;
+  color: var(--primary-color);
+}
+
+.contacto {
+  display: flex;
+  width: 30%;
+  gap: 2em;
+  flex-wrap: wrap;
+  height: 100%;
+  align-items: center;
+  justify-content: start;
+}
+.contacto input {
+  height: 3em;
+  border: solid 1px #0005;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+}
+.contacto button {
+  background-color: var(--secondary-color);
+  border: none;
+  color: var(--white);
+  width: 3em;
+  height: 3em;
+  border-radius: 0 5px 5px 0px;
+  font-weight: 900;
+  transform: translateX(-5px) translateY(0.8px);
+  cursor: pointer;
+}
+.derechos {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  border-top: solid 1px #0003;
+  padding: 2em;
+}
+.redes button {
+  padding: 1em;
+  border: 0;
+  border-radius: 50%;
+  background-color: var(--white);
+  box-shadow: 0 0 3px #0005;
+  cursor: pointer;
+}
+.redes {
+  display: flex;
+  gap: 1em;
+}

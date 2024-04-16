@@ -10,8 +10,6 @@ const Nav = ({ links, className, desacivando }) => {
     navigate(path);
   };
 
-//   useEffect(() => {}, [path]);
-
   const handleParentClick = (path) => {
     setActive(active === path ? null : path);
   };

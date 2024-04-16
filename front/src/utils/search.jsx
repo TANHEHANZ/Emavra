@@ -6,7 +6,7 @@ const Search = () => {
       <input type="search" />
       <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" />
     </div>
-  );
+  );  
 };
 
 export default Search;

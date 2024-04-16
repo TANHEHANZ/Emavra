@@ -1,5 +1,4 @@
-import Informacion from "../pages/principal/informacion/Informacion";
-import Ecogestion from "../pages/principal/ecogestion/ecogestion";
+
 import EmavraTransparente from "../pages/principal/emavraTransparente";
 import Home from "../pages/principal/home";
 import Noticias from "../pages/principal/noticias";
@@ -14,13 +13,13 @@ import Viveros from "../pages/principal/ecogestion/viveros";
 export const dataRoutes = [
   {
     name: "Inicio",
-    path: "home",
+    path: "",
     component: Home,
   },
   {
     name: "Informacion",
-    path: "informacion",
-    component: Informacion,
+    path: "/info",
+    component: Home,
     children: [
       {
         name: "Alcalde",
@@ -28,21 +27,21 @@ export const dataRoutes = [
         component: Alcalde,
       },
       {
-        name: "Contactos",
-        path: "contactos",
-        component: Contactos,
-      },
-      {
         name: "Empresa",
         path: "empresa",
         component: Empresa,
+      },
+      {
+        name: "Contactanos",
+        path: "contactanos",
+        component: Contactos,
       },
     ],
   },
   {
     name: "Ecogestion",
     path: "ecogestion",
-    component: Ecogestion,
+    component: Home,
     children: [
       {
         name: "Parques",
