@@ -1,4 +1,3 @@
-
 import EmavraTransparente from "../pages/principal/emavraTransparente";
 import Home from "../pages/principal/home";
 import Noticias from "../pages/principal/noticias";
@@ -40,14 +39,16 @@ export const dataRoutes = [
   },
   {
     name: "Ecogestion",
-    path: "ecogestion",
+    path: "/ecogestion",
     component: Home,
     children: [
       {
         name: "Parques",
         path: "parques",
         component: Parques,
+     
       },
+
       {
         name: "Proyectos",
         path: "proyectos",

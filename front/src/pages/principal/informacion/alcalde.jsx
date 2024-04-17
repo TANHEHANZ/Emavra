@@ -5,7 +5,7 @@ import "../../../styles/style-alcalde.css";
 const Alcalde = () => {
   return (
     <section>
-      <div className="head">
+      <div className="head-alcalde">
         <h1>Alcalde</h1>
         <img src={alcalde} alt="Img-Alcalde" />
       </div>

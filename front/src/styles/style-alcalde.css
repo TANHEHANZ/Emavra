@@ -1,24 +1,23 @@
-
-.head {
+.head-alcalde {
   display: flex;
   width: 100%;
   justify-content: center;
   align-items: center;
 }
-.head > img {
+.head-alcalde > img {
   border-radius: 50%;
   width: 20em;
   height: 20em;
   object-fit: cover;
 }
-.head > h1 {
+.head-alcalde > h1 {
   left: 1em;
   width: 250px;
   position: absolute;
   font-size: 28px;
   color: var(--white);
 }
-.head > h1::before {
+.head-alcalde > h1::before {
   content: "";
   position: absolute;
   background-color: var(--primary-color);
