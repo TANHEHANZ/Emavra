@@ -69,40 +69,31 @@
   width: 0px;
   flex-grow: 1;
   object-fit: cover;
-  border-radius: 1em;
-  transition: all 1s ease-in-out;
-
-}
-.slider > img:hover {
-  cursor: crosshair;
-  width: 300px;
   filter: contrast(120%);
+  transition: all 1s ease-in-out;
+  border-radius: 1em;
 
 }
+
 /* seccion noticias */
-.noticias {
+.container-carroucel {
   display: flex;
   flex-direction: column;
   padding: 2em 0 2em 0;
+  justify-content: center;
+  align-items: start;
   & > h2 {
-    width: 300px;
+    width: auto;
     padding: 0.2em;
     position: relative;
     color: var(--white);
     font-size: 28px;
+    background-color: var(--secondary-color);
+    border-radius: 0 5px 5px 0;
+    padding: 0.1em 2em;
   }
 }
-.noticias h2::before {
-  content: "";
-  position: absolute;
-  background-color: var(--secondary-color);
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  left: -10%;
-  top: 0;
-  border-radius: 0 5px 5px 0;
-}
+
 .carrucel {
   width: 80%;
   margin: 2em auto;
@@ -110,6 +101,7 @@
   justify-content: center;
   align-items: center;
   gap: 3em;
+  width: 1200px;
 }
 .carrucel img {
   width: 640px;
@@ -122,9 +114,11 @@
   flex-direction: column;
   gap: 2em;
   align-items: center;
+
 }
 .carrucel-contenido h3 {
   color: var(--primary-color);
+
 }
 .carrucel-contenido > button {
   border: none;
@@ -144,6 +138,12 @@
   background-color: var(--primary-color);
   border: none;
   cursor: pointer;
+  transition: all 1s ease;
+}
+.carrucel > button:hover {
+  color: var(--primary-color);
+  background-color: var(--white);
+  border: solid 1px var(--primary-color);
 }
 
 /* ----------------proyectos ------------------------ */
@@ -157,6 +157,7 @@
   justify-content: center;
   align-items: center;
   gap: 3em;
+
 }
 .datosProyecto {
   width: 20%;
@@ -165,10 +166,24 @@
   align-items: start;
   flex-direction: column;
   height: 50%;
+
 }
 .datosProyecto h3 {
   font-size: 32px;
+  
 }
+
+@keyframes slide-right {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(100px);
+            transform: translateX(100px);
+  }
+}
+
 .datosProyecto button {
   border: none;
   background-color: var(--secondary-color);
@@ -177,25 +192,4 @@
   padding: 0.5em 2em;
   align-self: flex-end;
   cursor: pointer;
-}
-
-.galeriaImg {
-  width: 60%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.5em;
-  overflow-y: scroll;
-}
-.galeriaImg img {
-  width: 380px;
-  height: 350px;
-  object-fit: cover;
-  border-radius: 5px;
-  box-shadow: 0px 0px 10px #0005;
-}
-.galeriaImg img:nth-child(2n) {
-  transform: translateY(-150px);
 }

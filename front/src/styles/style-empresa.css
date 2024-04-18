@@ -64,7 +64,7 @@
 .quienes-somos {
   display: flex;
   width: 80%;
-  margin: 0 auto;
+  margin: 2em auto;
   justify-content: space-between;
   align-items: center;
 }
@@ -89,8 +89,8 @@
 }
 
 .quienes-somos > img {
-  width: 400px;
-  height: 400px;
+  width: 350px;
+  height: 350px;
   border-radius: 0 80px 80px 80px;
 }
 
@@ -119,12 +119,13 @@
 
 .objetivos {
   width: 100%;
-  position: relative;
+  margin: 4em 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .objetivos > div {
-    width: 80%;
-    margin: 0 auto  ;
-
+  width: 60%;
 }
 
 .objetivos > div > h4 {
@@ -151,24 +152,23 @@
 /* ------------organigrama ----------------- */
 
 .organigrama {
-  position: absolute;
-  right: 0;
-  top: 0;
   display: flex;
   flex-direction: column;
-  gap: 1em;
+  gap: 0.5em;
 }
 .organigrama > img {
   width: 200px;
   height: 200px;
-border-radius: 15px 0 0 15px;
-box-shadow: 0 0 10px #0005;
+  border-radius: 15px;
+  box-shadow: 0 5px 10px #0005;
 }
 
-.organigrama > button{
-width: 200px;
-color:var(--white);
-background-color: var(--secondary-color);
-border: none;
-padding: .5em 1em ;
+.organigrama > button {
+  width: 200px;
+  color: var(--white);
+  background-color: var(--secondary-color);
+  border: none;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  border-radius: 5px 0 0 5px;
 }
