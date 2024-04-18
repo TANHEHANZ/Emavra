@@ -45,5 +45,63 @@ export const dataCarroucel = [
     descripcion:
       "Durante el mes de octubre se realizaron trabajos de mantenimiento en el Cementerio General de Cochabamba.Durante el mes de octubre se realizaron trabajos de mantenimiento en el Cementerio General de Cochabamba...",
   },
-  
+];
+
+export const emavraTransparenteData = [
+  {
+    id: 1,
+    Nombre: "Rendición de Cuentas",
+    archivo: "PDF",
+    Fecha: "2024-04-18",
+    Descargar: "http://ejemplo.com/rendicion_de_cuentas.pdf",
+  },
+  {
+    id: 2,
+    Nombre: "Ejecución Presupuestaria",
+    archivo: "PDF",
+    Fecha: "2024-04-18",
+    Descargar: "http://ejemplo.com/ejecucion_presupuestaria.pdf",
+  },
+  {
+    id: 3,
+    Nombre: "Informe de Gestión",
+    archivo: "PDF",
+    Fecha: "2024-04-18",
+    Descargar: "http://ejemplo.com/informe_de_gestion.pdf",
+  },
+  {
+    id: 4,
+    Nombre: "Balance Financiero",
+    archivo: "PDF",
+    Fecha: "2024-04-18",
+    Descargar: "http://ejemplo.com/balance_financiero.pdf",
+  },
+  {
+    id: 5,
+    Nombre: "Estado de Resultados",
+    archivo: "PDF",
+    Fecha: "2024-04-18",
+    Descargar: "http://ejemplo.com/estado_de_resultados.pdf",
+  },
+  {
+    id: 6,
+    Nombre: "Informe Auditoría",
+    archivo: "PDF",
+    Fecha: "2024-04-18",
+    Descargar: "http://ejemplo.com/informe_auditoria.pdf",
+  },
+  {
+    id: 7,
+    Nombre: "Informe de Cumplimiento",
+    archivo: "PDF",
+    Fecha: "2024-04-18",
+    Descargar: "http://ejemplo.com/informe_cumplimiento.pdf",
+  },
+  {
+    id: 8,
+    Nombre: "Informe de Gastos",
+    archivo: "PDF",
+    Fecha: "2024-04-18",
+    Descargar: "http://ejemplo.com/informe_gastos.pdf",
+  },
 ];

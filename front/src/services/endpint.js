@@ -1,23 +1,26 @@
-const apiUrl = process.env.APIURL;
+const apiUrl = import.meta.env.VITE_BACKEND_URL;
 
-export const peticion = async ({ method, auth, url, body }) => {
-  try {
-    const fetched = await fetch(`${apiUrl}/${url}`, {
-      method: method,
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-        Authorization: auth ? auth : undefined,
-      },
-      body: body ? JSON.stringify(body) : undefined,
-    });
+const apiService = {
+  async fetchData(method, url, body, auth) {
+    try {
+      const fetched = await fetch(`${apiUrl}${url}`, {
+        method: method,
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          Authorization: auth ? auth : undefined,
+        },
+        body: body ? JSON.stringify(body) : undefined,
+      });
 
-    if (!fetched.ok) {
-      throw new Error("La solicitud falló con estado " + fetched.status);
+      if (!fetched.ok) {
+        throw new Error("La solicitud falló con estado " + fetched.status);
+      }
+      return await fetched.json();
+    } catch (error) {
+      throw new Error(error.message);
     }
-
-    return await fetched.json();
-  } catch (error) {
-    return error.message;
   }
 };
+
+export default apiService;
