@@ -21,7 +21,7 @@ cd front
 npm install
 ```
 
-# Volver a la raíz del proyecto
+Volver a la raíz del proyecto
 cd ..
 
 # Instalar dependencias del backend
