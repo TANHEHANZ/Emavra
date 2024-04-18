@@ -2,7 +2,7 @@ import React from 'react'
 
 const Ecogestion = () => {
   return (
-    <div></div>
+    <div>Ecogestion</div>
   )
 }
 
