@@ -1,43 +1,49 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
-const Nav = ({ links, className, desacivando }) => {
+const Nav = ({ links, className, desactivando }) => {
   const navigate = useNavigate();
-  const location = useLocation();
-  const [active, setActive] = useState("");
-  const navigateTo = (path) => {
-    setActive(path);
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  useEffect(() => {
+    const savedActiveIndex = localStorage.getItem("activeIndex");
+    if (savedActiveIndex) {
+      setActiveIndex(parseInt(savedActiveIndex));
+    }
+  }, []);
+
+  const navigateTo = (path, index) => {
+    localStorage.setItem("activeIndex", index.toString());
     navigate(path);
   };
 
-  const handleParentClick = (path) => {
-    setActive(active === path ? null : path);
-  };
-
-  const isActiveLink = (path) => {
-    return active === path || location.pathname === path;
+  const handleItemClick = (index, path) => {
+    if (index === activeIndex) {
+      setActiveIndex(null);
+    } else {
+      setActiveIndex(index); 
+      navigateTo(path, index);
+    }
   };
 
   return (
     <ul className={className}>
       {links &&
         links.map((navegacion, i) => (
-          <li key={i} className={isActiveLink(navegacion.path) ? "active" : ""}>
+          <li key={i} className={activeIndex === i ? "active" : ""}>
             <div
               onClick={() => {
-                handleParentClick(navegacion.path);
-                navigateTo(navegacion.path);
+                handleItemClick(i, navegacion.path);
               }}
             >
               {navegacion.name}
             </div>
             {navegacion.children && (
               <div>
-                {active === navegacion.path && !desacivando && (
+                {activeIndex === i && (
                   <Nav
                     links={navegacion.children}
                     className="child-nav"
-                    desacivando={true}
                   />
                 )}
               </div>

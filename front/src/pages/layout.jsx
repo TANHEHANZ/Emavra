@@ -6,11 +6,12 @@ import logo from "../assets/logo.jpeg";
 import Search from "../utils/search";
 import "../styles/style-nav.css";
 import FooterHome from "../utils/footerHome";
+import "../styles/styleDashboard/style-content.css";
 
 const Layout = () => {
   return (
     <>
-      <nav>
+      <nav className="navPage">
         <img src={logo} alt="logo emavra" />
         <section className="nav">
           <Nav links={dataRoutes} />

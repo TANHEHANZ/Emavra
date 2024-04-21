@@ -11,14 +11,12 @@ import Viveros from "../pages/principal/ecogestion/viveros";
 
 export const dataRoutes = [
   {
-    name: "Inicio",
+    name: "inicio",
     path: "",
     component: Home,
   },
   {
     name: "Informacion",
-    path: "/info",
-    component: Home,
     children: [
       {
         name: "Alcalde",
@@ -39,8 +37,6 @@ export const dataRoutes = [
   },
   {
     name: "Ecogestion",
-    path: "/ecogestion",
-    component: Home,
     children: [
       {
         name: "Parques",

@@ -1,17 +1,16 @@
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { fas } from '@fortawesome/free-solid-svg-icons';
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fas } from "@fortawesome/free-solid-svg-icons";
 import { HashRouter, Route, Routes } from "react-router-dom";
 import Layout from "./pages/layout";
 import { dataRoutes } from "./services/routes";
-import { dataRoutesDashboard } from "./services/routes_dashboard";
 import React from "react";
-import Dashboard_layaut from './pages/dashboard/dashboard_layaut';
-import Login from './pages/dashboard/login';
+import Dashboard_layaut from "./pages/dashboard/dashboard_layaut";
+import { dataRoutesDashboard } from "./services/routes_dashboard";
 
 library.add(fas);
 
 function App() {
-  const renderRoutes = (dataRender ) => {
+  const renderRoutes = (dataRender) => {
     return dataRender.map((ruta) => (
       <React.Fragment key={ruta.path}>
         <Route path={ruta.path} element={<ruta.component />} />
@@ -27,18 +26,19 @@ function App() {
       </React.Fragment>
     ));
   };
-  
+
   return (
     <HashRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
-          {renderRoutes(dataRoutes)}
+          {/* {renderRoutes(dataRoutes)} */}
         </Route>
       </Routes>
       <Routes>
-      <Route path="/dashboard" element={<Dashboard_layaut />}>
-      {/* {renderRoutesDashborad(dataRoutesDashboard)} */}
-      </Route>
+        <Route path="dashboard" element={<Dashboard_layaut />}>
+          {renderRoutesDashborad(dataRoutesDashboard)}
+
+        </Route>
       </Routes>
     </HashRouter>
   );

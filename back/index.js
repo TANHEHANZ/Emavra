@@ -8,9 +8,12 @@ const ProyectRoutes = require("./src/routes/RouteProyectos");
 const SaveFileRoutes = require("./src/routes/RuouteSaveFile");
 const PostRoutes = require("./src/routes/RoutePost");
 
-app.use(bodyParser.urlencoded({ extended: false }));
-
 app.use(cors());
+app.use(
+  bodyParser.urlencoded({
+    extended: false,
+  })
+);
 app.use(bodyParser.json());
 
 app.use("/api/users", userRoutes);

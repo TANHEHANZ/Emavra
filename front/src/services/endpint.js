@@ -12,7 +12,7 @@ const apiService = {
         },
         body: body ? JSON.stringify(body) : undefined,
       });
-
+      
       if (!fetched.ok) {
         throw new Error("La solicitud falló con estado " + fetched.status);
       }

@@ -6,7 +6,8 @@ const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
 const app = express();
-app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+// app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -17,7 +18,7 @@ const storage = multer.diskStorage({
   },
 });
 const upload = multer({ storage: storage });
-const uploadsDir = path.join(__dirname, "../../uploads");
+const uploadsDir = path.join(__dirname, "../uploads");
 
 const MultimediaController = {
   GetMultimedia: (req, res) => {

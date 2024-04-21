@@ -1,0 +1,60 @@
+.containerForm {
+  display: flex;
+}
+
+.formularioText {
+  border: solid 2px #0003;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+.formularioText > div > label {
+  display: block;
+}
+.formularioText > div > label::first-letter {
+  text-transform: uppercase;
+}
+
+.formularioText > div > input {
+  width: 100%;
+  border: none;
+  border-bottom: solid 1px #000;
+}
+
+.formularioText > p {
+  /* text-transform: uppercase; */
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-align: center;
+}
+.contenidoDash > aside {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  align-content: start;
+  content: "";
+  position: absolute;
+  top: 6em;
+  right: -0%;
+  width: 500px;
+  height: 500px;
+  background-color: var(--primary-color);
+  padding: 2.5em;
+  transition: all 1.5s ease-in-out;
+  box-shadow: -5px -5px 10px #0005;
+  border-radius: 40px 0 0 40px;
+  overflow-y: scroll;
+}
+.contenidoDash > aside > h4 {
+  width: 100%;
+  text-align: center;
+  color: var(--white);
+}
+.contenidoDash > aside > img {
+  width: calc(94% / 2);
+  height: 170px;
+  object-fit: cover;
+  cursor: pointer;
+  border-radius: 15px;
+}
