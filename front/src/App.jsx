@@ -31,7 +31,7 @@ function App() {
     <HashRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
-          {/* {renderRoutes(dataRoutes)} */}
+          {renderRoutes(dataRoutes)}
         </Route>
       </Routes>
       <Routes>

@@ -7,7 +7,7 @@ const userRoutes = require("./src/routes/RouteUser");
 const ProyectRoutes = require("./src/routes/RouteProyectos");
 const SaveFileRoutes = require("./src/routes/RuouteSaveFile");
 const PostRoutes = require("./src/routes/RoutePost");
-
+const ClaudinaryRoutes = require("./src/routes/RouteClaudinary");
 app.use(cors());
 app.use(
   bodyParser.urlencoded({
@@ -20,6 +20,7 @@ app.use("/api/users", userRoutes);
 app.use("/api/proyect", ProyectRoutes);
 app.use("/api/multimedia", SaveFileRoutes);
 app.use("/api/post", PostRoutes);
+app.use("/api/claudynary", ClaudinaryRoutes);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
