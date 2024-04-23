@@ -1,64 +1,63 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import FormularioDocumentos from "../../../components/form";
 import Tablebody from "../../../components/table";
 import TableDash from "../../../components/tableDashborad";
+import apiService from "../../../services/endpint";
+import { thead } from "../../../data/dataprueba";
 
 const CreateNoticia = () => {
   const [llenarForm, setLlenarForm] = useState(false);
-
+  const [noticiasData, setNoticiasData] = useState([]);
   const campos = [
     { nombre: "titulo", label: "Titulo", tipo: "text" },
     { nombre: "fecha", label: "fecha", tipo: "date" },
     { nombre: "ubicacion", label: "ubicacion", tipo: "text" },
     { nombre: "Descripcion", label: "Descripcion", tipo: "textarea" },
     { nombre: "contenido", label: "contenido", tipo: "textarea" },
+    { nombre: "autor", label: "Autor", tipo: "text" },
     { nombre: "destacar", label: "Destacar", tipo: "checkbox" },
+    { nombre: "estado", label: "visible", tipo: "checkbox" },
   ];
 
-  const thead = [
-    "Titulo",
-    "Fecha",
-    "Ubicacion",
-    "Descripcion",
-    "Contenido",
-    "Destacado",
-  ];
-  const tbody = [
-    {
-      titulo: "Noticia 1",
-      fecha: "2024-04-23",
-      ubicacion: "Ubicacion 1",
-      Descripcion: "Descripcion 1",
-      contenido: "Contenido 1",
-      destacar: true,
-    },
-    {
-      titulo: "Noticia 2",
-      fecha: "2024-04-24",
-      ubicacion: "Ubicacion 2",
-      Descripcion: "Descripcion 2",
-      contenido: "Contenido 2",
-      destacar: false,
-    },
-    {
-      titulo: "Noticia 3",
-      fecha: "2024-04-25",
-      ubicacion: "Ubicacion 3",
-      Descripcion: "Descripcion 3",
-      contenido: "Contenido 3",
-      destacar: true,
-    },
-  ];
+  const [tbody, setTbody] = useState([]);
+ 
+
+  const fetchedNoticias = async () => {
+    const noticia = await apiService.fetchData("GET", "api/noticias");
+    setNoticiasData(noticia);
+  };
+  useEffect(() => {
+    fetchedNoticias();
+  }, []);
 
   const handleEdit = (row) => {
-    // Lógica para editar el elemento
-    console.log("Editar", row);
+    // console.log("Editar", row);
+    // const updateData = apiService.fetchData(
+    //   "PUT",
+    //   "api/post/" + row.id,
+    //   { row },
+    //   undefined
+    // );
+    // console.log(updateData);
   };
 
   const handleDelete = (row) => {
     // Lógica para eliminar el elemento
     console.log("Eliminar", row);
+    // <FormularioDocumentos
+    //   campos={row}
+    //   title={"Ediatar "}
+    //   parametro={"api/post?Noticias=true"}
+    // />;
   };
+  useEffect(() => {
+    if (noticiasData.length > 0) {
+      setTbody(noticiasData);
+    }
+  }, [noticiasData]);
+
+
+
   return (
     <div>
       <section className="containerForm">
@@ -67,11 +66,15 @@ const CreateNoticia = () => {
           {llenarForm ? "Volver" : "Nueva noticia"}
         </button>
         {llenarForm ? (
-          <FormularioDocumentos campos={campos} title={"Crear nueva noticia"} />
+          <FormularioDocumentos
+            campos={campos}
+            title={"Crear nueva noticia"}
+            parametro={"api/post?Noticias=true"}
+          />
         ) : (
           ""
         )}
-        <section className="table">
+        <section className="table" style={{ width: "80vw" }}>
           <TableDash
             tbody={tbody}
             thead={thead}

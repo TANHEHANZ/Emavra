@@ -51,7 +51,7 @@ CREATE TABLE "Post" (
     "Descripcion" VARCHAR(150),
     "contenido" VARCHAR(5000) NOT NULL,
     "estado" BOOLEAN NOT NULL DEFAULT true,
-    "destacar" INTEGER NOT NULL,
+    "destacar" BOOLEAN NOT NULL,
     "fecha" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "ubicacion" TEXT NOT NULL,
     "multimedia" TEXT[],

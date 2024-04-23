@@ -51,7 +51,7 @@ model Post {
   Descripcion    String?          @db.VarChar(150)
   contenido      String           @db.VarChar(5000)
   estado         Boolean          @default(true)
-  destacar       Int
+  destacar       Boolean
   fecha          DateTime         @default(now())
   ubicacion      String
   multimedia     String[]

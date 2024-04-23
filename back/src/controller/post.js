@@ -50,7 +50,7 @@ const PostController = {
     }
   },
   getPost: async (req, res) => {
-    const getposts = await prisma.post.findMany({});
+    const getposts = await prisma.post.findMany();
     res.json(getposts);
   },
 
