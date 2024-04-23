@@ -17,17 +17,17 @@ const Formulario = ({ campos, title }) => {
 
   return (
     <form onSubmit={handleSubmit} className="formularioText">
-      <p>{title ? title : "Formulario"}</p>
+      <h2>{title ? title : "Formulario"}</h2>
       {campos.map((campo, index) => (
-        <div key={index}>
+        <div key={index } >
           <label htmlFor={campo.nombre}>{campo.label}</label>
           {campo.tipo === "textarea" ? (
-            <textarea
+            <textarea 
               id={campo.nombre}
               name={campo.nombre}
               value={formData[campo.nombre] || ""}
               onChange={handleChange}
-              rows="4" cols="40"
+              rows="8" 
             />
           ) : (
             <input
@@ -40,7 +40,7 @@ const Formulario = ({ campos, title }) => {
           )}
         </div>
       ))}
-      <button type="submit">Enviar</button>
+      <button type="submit">{title}</button>
     </form>
   );
 };

@@ -1,7 +1,56 @@
 .containerForm {
   display: flex;
+  flex-direction: column;
 }
 
+.containerForm > form {
+  width: 90%;
+  gap: 1em;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  
+}
+.containerForm > form > div {
+  grid-column: span 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+}
+
+.containerForm > form > h2 {
+  grid-column: span 3;
+  width: 100%;
+}
+.containerForm > form > div > input {
+  width: 100%;
+  background-color: transparent;
+  border: solid 1px #0005;
+  outline: none;
+  padding: 0.5em;
+}
+.containerForm > form > div > textarea {
+  width: 100%;
+  background-color: transparent;
+  border: solid 1px #0005;
+}
+.containerForm > form > div > input[type="checkbox"] {
+  width: auto;
+}
+
+.formularioText > div > label::first-letter {
+  text-transform: uppercase;
+}
+.formularioText > button {
+  background-color: var(--primary-color);
+  color: var(--white);
+  border: none;
+  padding: 0.5em;
+  border-radius: 0.6em;
+}
+
+/*
 .formularioText {
   border: solid 2px #0003;
   padding: 2em;
@@ -12,9 +61,7 @@
 .formularioText > div > label {
   display: block;
 }
-.formularioText > div > label::first-letter {
-  text-transform: uppercase;
-}
+
 
 .formularioText > div > input {
   width: 100%;
@@ -24,37 +71,120 @@
 
 .formularioText > p {
   /* text-transform: uppercase; */
+/*
   font-weight: 600;
   letter-spacing: 1.2px;
   text-align: center;
-}
+} */
 .contenidoDash > aside {
   display: flex;
   flex-wrap: wrap;
-  gap: 1em;
   align-content: start;
   content: "";
-  position: absolute;
+  position: relative;
   top: 6em;
-  right: -0%;
-  width: 500px;
+  right: 0%;
+  width: 350px;
   height: 500px;
-  background-color: var(--primary-color);
-  padding: 2.5em;
+  background-color: var(--white);
   transition: all 1.5s ease-in-out;
-  box-shadow: -5px -5px 10px #0005;
-  border-radius: 40px 0 0 40px;
+  /* box-shadow: -2px -2px 8px #0005; */
+  border-radius: 20px 0 0 20px;
+  border: solid 2px #0003;
   overflow-y: scroll;
 }
-.contenidoDash > aside > h4 {
+.nuevoFile {
+  position: sticky;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  right: 0;
+  top: 0;
+  border-radius: 20px 0 10px 0;
+  display: flex;
   width: 100%;
-  text-align: center;
+  min-width: 3em;
+  transition: all 1.5s ease-in-out;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+  z-index: 100;
+}
+
+.nuevoFile > button {
+  border: none;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+.nuevoFile > button:hover {
+  background-color: var(--primary-color);
+  /* border: solid 1px var(--white); */
   color: var(--white);
 }
-.contenidoDash > aside > img {
-  width: calc(94% / 2);
-  height: 170px;
+.actions {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+  margin: 0.2em 0.5em;
+  padding: 5px;
+  gap: 0.5em;
+}
+.actions input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+}
+
+.actions button {
+  color: var(--primary-color);
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.img-waper > img {
+  width: 100%;
+  height: 200px;
   object-fit: cover;
   cursor: pointer;
-  border-radius: 15px;
+  padding: 0.2em 0.5em;
+  border-radius: 30px;
+}
+.img-waper {
+  position: relative;
+  width: 100%;
+}
+.more {
+  background-color: var(--secondary-color);
+  color: var(--white);
+  font-size: 18px;
+  position: absolute;
+  right: 1em;
+  top: 0;
+}
+
+.custom-file-upload {
+  display: inline-block;
+  color: var(--primary-color);
+  border: solid 1px var(--primary-color);
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 0.2em 0.5em;
+  margin: 1em 0;
+  transition: all 0.5s ease-in-out;
+}
+.custom-file-upload:hover {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+#real-file {
+  display: none;
 }

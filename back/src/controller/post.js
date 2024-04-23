@@ -1,48 +1,47 @@
 const { PrismaClient } = require("@prisma/client");
+const { formatResponse } = require("../utils/responseHanddler");
 const prisma = new PrismaClient();
 
 const PostController = {
   createPost: async (req, res) => {
+    const createNoticias = req.query.Noticias;
+    const createProyectos = req.query.Proyectos;
+    const createMantenimeinto = req.query.Mantenimeinto;
+
     try {
-      const {
-        titulo,
-        Descripcion,
-        contenido,
-        ubicacion,
-        userId,
-        multimediaIds,
-        destacar,
-        fecha,
-      } = req.body;
       const nuevoPost = await prisma.post.create({
-        data: {
-          titulo,
-          Descripcion,
-          contenido,
-          ubicacion,
-          estado: true,
-          destacar,
-          fecha,
-          userId,
-          multimedia: {
-            connect: multimediaIds.map((id_multimedia) => ({ id_multimedia })),
-          },
-        },
-        include: {
-          multimedia: {
-            select: {
-              url_recurso: true,
-            },
-          },
-          userRelacion: {
-            select: {
-              email: true,
-            },
-          },
-        },
+        data: req.body,
       });
 
-      res.status(200).json({ message: "Post creado exitosamente", nuevoPost });
+      let message = "Se creo solo el post";
+      let data = nuevoPost;
+
+      if (nuevoPost && createNoticias === "true") {
+        await prisma.noticias.create({
+          data: {
+            postId: nuevoPost.id_post,
+          },
+        });
+        message = "noticia creada exitosamente";
+      }
+      if (nuevoPost && createProyectos === "true") {
+        await prisma.proyectos.create({
+          data: {
+            postId: nuevoPost.id_post,
+          },
+        });
+        message = "proyecto creado exitosamente";
+      }
+      if (nuevoPost && createMantenimeinto === "true") {
+        await prisma.manteniemiento.create({
+          data: {
+            postId: nuevoPost.id_post,
+          },
+        });
+        message = "Manteniemiento creado exitosamente";
+      }
+
+      res.status(200).json({ message, data });
     } catch (error) {
       console.error("Error al crear el post:", error);
       res
@@ -51,38 +50,21 @@ const PostController = {
     }
   },
   getPost: async (req, res) => {
-    const getposts = await prisma.post.findMany({
-      include: {
-        userRelacion: true,
-        multimedia: {
-          select: { url_recurso: true },
-        },
-      },
-    });
+    const getposts = await prisma.post.findMany({});
     res.json(getposts);
   },
 
   updatePost: async (req, res) => {
-    const reqParams = req.query;
-    const idPost = Number(req.params.idPost);
-    if (reqParams === noticia) {
-      const updatePostNoticia = await prisma.post.update({
+    try {
+      const idPost = Number(req.params.idPost);
+      const updatePostData = await prisma.post.update({
         where: { id_post: idPost },
         data: req.body,
-        Noticias: {
-          connect: id_noticias,
-        },
       });
-      res.json(updatePostNoticia);
-    } else if (reqParams === proyectos) {
-      const updatePostProyectos = await prisma.post.update({
-        where: { id_post: idPost },
-        data: req.body,
-        Proyectos: {
-          connect: id_proyectos,
-        },
-      });
-      res.json(updatePostNoticia);
+      formatResponse(res, "Actualizo", updatePostData);
+      
+    } catch (error) {
+      res.json({ message: "Error en la peticion" });
     }
   },
 };

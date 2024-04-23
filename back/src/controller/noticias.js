@@ -5,12 +5,25 @@ const { capError } = require("../utils/errorHanddler");
 const { formatResponse } = require("../utils/responseHanddler");
 
 const NoticiaController = {
-  craateNoticias: async (req, res) => {
+  updateNorticia: async (req, res) => {
     try {
-      const noticia = await prisma.noticias.create({
+      const id = Number(req.params.idNot);
+      const noticia = await prisma.noticias.update({
+        where: { id_noticias: id },
         data: req.body,
       });
-      formatResponse(res, "Creo", noticia);
+      formatResponse(res, "Actualizo", noticia);
+    } catch (error) {
+      capError(error, res);
+    }
+  },
+  deleteNoticias: async (req, res) => {
+    try {
+      const id = Number(req.params.idNot);
+      const deleteNot = await prisma.noticias.delete({
+        where: { id_noticias: id },
+      });
+      formatResponse(res, "elimino", deleteNot);
     } catch (error) {
       capError(error, res);
     }
@@ -22,9 +35,6 @@ const NoticiaController = {
           postRelacion: {
             include: {
               userRelacion: true,
-              multimedia: {
-                select: { url_recurso: true },
-              },
             },
           },
         },

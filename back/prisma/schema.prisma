@@ -26,34 +26,44 @@ model Noticias {
   postRelacion Post @relation(fields: [postId], references: [id_post])
 }
 
+model Manteniemiento {
+  id_mantenimiento Int  @id @default(autoincrement())
+  postId           Int
+  postRelacion     Post @relation(fields: [postId], references: [id_post])
+}
+
 model EmavaTransparente {
-  id_transparencia   Int        @id @default(autoincrement())
-  Nombre             String
-  Descripcion        String?    @db.VarChar(150)
-  multimediaId       Int
-  fecha              DateTime
-  multimediaRelacion Multimedia @relation(fields: [multimediaId], references: [id_multimedia])
+  id_transparencia Int      @id @default(autoincrement())
+  Nombre           String
+  Descripcion      String?  @db.VarChar(150)
+  multimediaId     Int
+  fecha            DateTime
+  multimedia       String[]
+
+  // multimediaRelacion Multimedia @relation(fields: [multimediaId], references: [id_multimedia])
 }
 
 model Post {
-  id_post Int @id @default(autoincrement())
-  userId       Int
-  multimedia   Multimedia[] @relation("PostMultimedia")
-  userRelacion User         @relation(fields: [userId], references: [id_user])
-  titulo       String
-  Descripcion  String?      @db.VarChar(150)
-  contenido    String       @db.VarChar(5000)
-  estado       Boolean      @default(true)
-  destacar     Int
-  fecha        DateTime     @default(now())
-  ubicacion    String
-  Proyectos    Proyectos[]
-  Noticias     Noticias[]
+  id_post        Int              @id @default(autoincrement())
+  userId         Int
+  userRelacion   User             @relation(fields: [userId], references: [id_user])
+  titulo         String
+  Descripcion    String?          @db.VarChar(150)
+  contenido      String           @db.VarChar(5000)
+  estado         Boolean          @default(true)
+  destacar       Int
+  fecha          DateTime         @default(now())
+  ubicacion      String
+  multimedia     String[]
+  autor          String?
+  Proyectos      Proyectos[]
+  Noticias       Noticias[]
+  Manteniemiento Manteniemiento[]
 }
 
-model Multimedia {
-  id_multimedia Int    @id @default(autoincrement())
-  url_recurso   String @db.VarChar(200)
-  posts             Post[]              @relation("PostMultimedia") 
-  EmavaTransparente EmavaTransparente[]
-}
+// model Multimedia {
+//   id_multimedia     Int                 @id @default(autoincrement())
+//   url_recurso       String              @db.VarChar(200)
+//   // posts             Post[]              @relation("PostMultimedia") 
+//   EmavaTransparente EmavaTransparente[]
+// }

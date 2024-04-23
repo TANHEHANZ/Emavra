@@ -13,6 +13,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  z-index:2;
 }
 .contenidoDash {
   width: 100%;
@@ -20,6 +21,8 @@
   display: flex;
   position: relative;
   overflow: hidden;
+  background-color: #e5e6e9;
+  /* z-index: -1; */
 }
 .contenidoDash > section {
   width: calc(100% - 230px);
@@ -33,9 +36,8 @@
 .contenidoDash .nover {
   content: "";
   position: absolute;
-  right: -100%;
+  right: -30%;
   top: 6em;
-  transition: all 1.5 ease-in-out;
 }
 .imagenes {
   box-shadow: 0 0 10px #0005;

@@ -24,7 +24,7 @@ router.delete('/delete/:publicId', async (req, res) => {
   }
 });
 
-router.get('/list', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const images = await listImages();
     res.json(images);
