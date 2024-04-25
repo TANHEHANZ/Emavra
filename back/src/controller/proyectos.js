@@ -8,9 +8,9 @@ const ProyectoController = {
   getProyect: async (req, res) => {
     try {
       const getproyecto = await prisma.proyectos.findMany({
-        include:{
-          postRelacion:true
-        }
+        include: {
+          postRelacion: true,
+        },
       });
       res.json(getproyecto);
     } catch (error) {
@@ -77,9 +77,14 @@ const ProyectoController = {
             id_post: deleteProyecto.postId,
           },
         });
-        formatResponse(res, "elimino ", deleteProyecto);
+        formatResponse(res, "elimino", deleteProyecto);
+      } else {
+        formatResponse(
+          res,
+          "No se pudo encontrar el proyecto para eliminar",
+          null
+        );
       }
-      formatResponse(res, "solo se elimino el proyecto ", deleteProyecto);
     } catch (error) {
       capError(error, res);
     }

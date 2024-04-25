@@ -31,8 +31,10 @@ const NoticiaController = {
         await prisma.post.delete({
           where: { id_post: deleteNot.postId },
         });
+        formatResponse(res, "elimino", deleteNot);
+      } else {
+        formatResponse(res, "elimino solo el post", deleteNot);
       }
-      formatResponse(res, "elimino", deleteNot);
     } catch (error) {
       capError(error, res);
     }

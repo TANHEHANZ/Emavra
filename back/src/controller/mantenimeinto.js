@@ -23,14 +23,31 @@ const MantenimeintoController = {
       const deletemante = await prisma.manteniemiento.delete({
         where: { id_noticias: id },
       });
-      formatResponse(res, "elimino", deletemante);
+      if (deletemante) {
+        await prisma.post.delete({
+          where: {
+            id_post: deletemante.postId,
+          },
+        });
+        formatResponse(res, "elimino", deletemante);
+      } else {
+        formatResponse(
+          res,
+          "No se pudo encontrar el proyecto para eliminar",
+          null
+        );
+      }
     } catch (error) {
       capError(error, res);
     }
   },
   getMantenimeinto: async (req, res) => {
     try {
-      const getMantenimeintodata = await prisma.manteniemiento.findMany({});
+      const getMantenimeintodata = await prisma.manteniemiento.findMany({
+        include: {
+          postRelacion: true,
+        },
+      });
       res.json(getMantenimeintodata);
     } catch (error) {
       capError(error, res);
