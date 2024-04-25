@@ -1,10 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import apiService from "../services/endpint";
 import useContextImg from "./context/context-imgPost";
 
-const Formulario = ({ campos, title, parametro }) => {
-  const [formData, setFormData] = useState({});
-  const { img } = useContextImg();
+const Formulario = ({
+  campos,
+  title,
+  parametro,
+  formDataToEdit,
+  onSuccess,
+}) => {
+  const [formData, setFormData] = useState(formDataToEdit.postRelacion || "");
+  const { img, setImg } = useContextImg();
+
+  useEffect(() => {
+    setImg(formData.multimedia ? formData.multimedia : []);
+  }, [formDataToEdit]);
 
   const handleChange = (e) => {
     const value =
@@ -16,21 +26,22 @@ const Formulario = ({ campos, title, parametro }) => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const fecha = formData.fecha
       ? new Date(formData.fecha).toISOString()
       : null;
-    console.log(formData);
-
-    const postForm = apiService.fetchData(
-      "POST",
+    let evaluar = formDataToEdit ? "PUT" : "POST";
+    const postForm = await apiService.fetchData(
+      evaluar,
       parametro,
       { ...formData, multimedia: img, userId: 1, fecha },
       undefined
     );
-
-    console.log(postForm);
+    console.log(postForm)
+    if (postForm) {
+      onSuccess();
+    }
   };
 
   return (

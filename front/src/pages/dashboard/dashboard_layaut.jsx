@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ImgPost from "../../components/imgPost";
 import "../../styles/styleDashboard/style-content.css";
 
-const Dashboard_layaut = () => {
+const DashboardLayaut = () => {
   const [ver, setVer] = useState("nover");
 
   const cambiarClase = () => {
@@ -42,4 +42,4 @@ const Dashboard_layaut = () => {
   );
 };
 
-export default Dashboard_layaut;
+export default DashboardLayaut;

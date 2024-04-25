@@ -4,7 +4,7 @@ import { HashRouter, Route, Routes } from "react-router-dom";
 import Layout from "./pages/layout";
 import { dataRoutes } from "./services/routes";
 import React from "react";
-import Dashboard_layaut from "./pages/dashboard/dashboard_layaut";
+import DashboardLayaut from "./pages/dashboard/dashboard_layaut";
 import { dataRoutesDashboard } from "./services/routes_dashboard";
 
 library.add(fas);
@@ -35,7 +35,7 @@ function App() {
         </Route>
       </Routes>
       <Routes>
-        <Route path="dashboard" element={<Dashboard_layaut />}>
+        <Route path="dashboard" element={<DashboardLayaut />}>
           {renderRoutesDashborad(dataRoutesDashboard)}
 
         </Route>

@@ -3,26 +3,9 @@ import "../../styles/style-home.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Carrosucel from "../../components/carrosucel";
 import { dataCarroucel, dataInicio } from "../../data/dataprueba";
-import apiService from "../../services/endpint";
 const Home = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const [data, setData] = useState([]);
-  const fetchData = async () => {
-    const multimedia = await apiService.fetchData(
-      "GET",
-      "api/multimedia",
-      null
-    );
-    const multimediaf = multimedia.multimediaUrls.filter(
-      (url) =>
-        url.endsWith(".png") || url.endsWith(".jpg") || url.endsWith(".jpeg")
-    );
-    setData(multimediaf);
-  };
-  useEffect(() => {
-    fetchData();
-  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {

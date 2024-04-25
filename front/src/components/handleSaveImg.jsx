@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { uploadImageToCloudinary } from "../services/claudinary";
 
-const HandleSaveImg = ({ getImg, setAgregar ,agregar}) => {
+const HandleSaveImg = ({ getImg, setAgregar, agregar }) => {
   const [file, setFile] = useState(null);
 
   const handleFileChange = (event) => {
@@ -28,7 +28,7 @@ const HandleSaveImg = ({ getImg, setAgregar ,agregar}) => {
 
   return (
     <>
-      <label for="real-file" className="custom-file-upload">
+      <label htmlFor="real-file" className="custom-file-upload">
         <input type="file" id="real-file" hidden onChange={handleFileChange} />
         Seleccionar imagen
       </label>

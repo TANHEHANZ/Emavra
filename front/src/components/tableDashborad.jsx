@@ -1,8 +1,23 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import apiService from "../services/endpint";
 
-const TableDash = ({ tbody, thead, onEdit, onDelete }) => {
-  console.log(tbody);
+const TableDash = ({ tbody, thead, onEdit, route, onSuccess }) => {
+  const handleDelete = async (row) => {
+    console.log("Eliminar", row);
+
+    const deleteData = await apiService.fetchData(
+      "DELETE",
+      route + row,
+      undefined,
+      undefined
+    );
+    if (deleteData.message === "Se elimino el registro correctamente") {
+      onSuccess();
+    }
+    console.log(deleteData);
+  };
+
   return (
     <table>
       <thead>
@@ -16,7 +31,7 @@ const TableDash = ({ tbody, thead, onEdit, onDelete }) => {
       <tbody>
         {tbody.map((row, rowIndex) => (
           <tr key={rowIndex}>
-            <td>{row.id_noticias}</td>
+            <td>{rowIndex + 1}</td>
             <td>{row.postRelacion.titulo}</td>
             <td>{row.postRelacion.fecha}</td>
             <td>{row.postRelacion.ubicacion}</td>
@@ -36,7 +51,9 @@ const TableDash = ({ tbody, thead, onEdit, onDelete }) => {
             </td>
             <td>
               <button onClick={() => onEdit(row)}>Editar</button>
-              <button onClick={() => onDelete(row)}>Eliminar</button>
+              <button onClick={() => handleDelete(row.id_noticias)}>
+                Eliminar
+              </button>
             </td>
           </tr>
         ))}

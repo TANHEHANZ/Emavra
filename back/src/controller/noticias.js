@@ -22,7 +22,16 @@ const NoticiaController = {
       const id = Number(req.params.idNot);
       const deleteNot = await prisma.noticias.delete({
         where: { id_noticias: id },
+        select: {
+          postId: true,
+        },
       });
+
+      if (deleteNot) {
+        await prisma.post.delete({
+          where: { id_post: deleteNot.postId },
+        });
+      }
       formatResponse(res, "elimino", deleteNot);
     } catch (error) {
       capError(error, res);
@@ -32,11 +41,7 @@ const NoticiaController = {
     try {
       const getDataNoticias = await prisma.noticias.findMany({
         include: {
-          postRelacion: {
-            include: {
-              userRelacion: true,
-            },
-          },
+          postRelacion: true,
         },
       });
 

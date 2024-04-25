@@ -9,7 +9,6 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: auto;
-  
 }
 .containerForm > form > div {
   grid-column: span 1;
@@ -111,6 +110,7 @@
   align-items: center;
   gap: 0.5em;
   z-index: 100;
+  /* padding: 1em; */
 }
 
 .nuevoFile > button {
@@ -176,9 +176,10 @@
   border: solid 1px var(--primary-color);
   border-radius: 5px;
   cursor: pointer;
-  padding: 0.2em 0.5em;
-  margin: 1em 0;
+  padding: 0.3em 0.5em ;
+  margin: 3em 0 ;
   transition: all 0.5s ease-in-out;
+  font-size: 12px;
 }
 .custom-file-upload:hover {
   background-color: var(--primary-color);

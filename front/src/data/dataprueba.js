@@ -116,3 +116,14 @@ export const thead = [
   "Destacado",
   "Visible",
 ];
+
+export const campos = [
+  { nombre: "titulo", label: "Titulo", tipo: "text" },
+  { nombre: "fecha", label: "fecha", tipo: "date" },
+  { nombre: "ubicacion", label: "ubicacion", tipo: "text" },
+  { nombre: "Descripcion", label: "Descripcion", tipo: "textarea" },
+  { nombre: "contenido", label: "contenido", tipo: "textarea" },
+  { nombre: "autor", label: "Autor", tipo: "text" },
+  { nombre: "destacar", label: "Destacar", tipo: "checkbox" },
+  { nombre: "estado", label: "visible", tipo: "checkbox" },
+];

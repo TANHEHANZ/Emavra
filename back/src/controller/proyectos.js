@@ -7,7 +7,11 @@ const prisma = new PrismaClient();
 const ProyectoController = {
   getProyect: async (req, res) => {
     try {
-      const getproyecto = await prisma.proyectos.findMany({});
+      const getproyecto = await prisma.proyectos.findMany({
+        include:{
+          postRelacion:true
+        }
+      });
       res.json(getproyecto);
     } catch (error) {
       capError(error, res);
@@ -35,7 +39,7 @@ const ProyectoController = {
       if (createPost) {
         const createProyecto = await prisma.proyectos.create({
           data: {
-            postId: createPost.id_post,     
+            postId: createPost.id_post,
           },
         });
         formatResponse(res, "Creo", createProyecto);
@@ -62,8 +66,20 @@ const ProyectoController = {
       const id = Number(req.params.idProyect);
       const deleteProyecto = await prisma.proyectos.delete({
         where: { id_proyectos: id },
+        select: {
+          postId: true,
+        },
       });
-      formatResponse(res, "elimino ", deleteProyecto);
+
+      if (deleteProyecto) {
+        await prisma.post.delete({
+          where: {
+            id_post: deleteProyecto.postId,
+          },
+        });
+        formatResponse(res, "elimino ", deleteProyecto);
+      }
+      formatResponse(res, "solo se elimino el proyecto ", deleteProyecto);
     } catch (error) {
       capError(error, res);
     }
