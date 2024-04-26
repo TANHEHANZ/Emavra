@@ -104,7 +104,6 @@
   border-radius: 20px 0 10px 0;
   display: flex;
   width: 100%;
-  min-width: 3em;
   transition: all 1.5s ease-in-out;
   justify-content: center;
   align-items: center;

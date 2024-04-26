@@ -34,10 +34,7 @@
 }
 
 .contenidoDash .nover {
-  content: "";
-  position: absolute;
   right: -50%;
-  top: 6em;
 }
 .imagenes {
   box-shadow: 0 0 10px #0005;

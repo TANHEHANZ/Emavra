@@ -4,15 +4,23 @@ import apiService from "../services/endpint";
 
 const TableDash = ({ tbody, thead, onEdit, route, onSuccess }) => {
   const handleDelete = async (row) => {
-    console.log("Eliminar", row);
+    let idTable;
+
+    if (row.id_proyectos) {
+      idTable = row.id_proyectos;
+    } else if (row.id_noticias) {
+      idTable = row.id_noticias;
+    } else {
+      idTable = row.id_mantenimiento;
+    }
 
     const deleteData = await apiService.fetchData(
       "DELETE",
-      route + row,
+      route + idTable,
       undefined,
       undefined
     );
-    if (deleteData.message === "Se elimino el registro correctamente") {
+    if (deleteData.ok) {
       onSuccess();
     }
     console.log(deleteData);
@@ -51,7 +59,7 @@ const TableDash = ({ tbody, thead, onEdit, route, onSuccess }) => {
             </td>
             <td>
               <button onClick={() => onEdit(row)}>Editar</button>
-              <button onClick={() => handleDelete(row.id_noticias)}>
+              <button onClick={() => handleDelete(row)}>
                 Eliminar
               </button>
             </td>

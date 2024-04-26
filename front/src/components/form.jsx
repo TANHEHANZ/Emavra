@@ -38,7 +38,6 @@ const Formulario = ({
       { ...formData, multimedia: img, userId: 1, fecha },
       undefined
     );
-    console.log(postForm)
     if (postForm) {
       onSuccess();
     }

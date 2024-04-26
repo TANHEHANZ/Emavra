@@ -66,9 +66,8 @@ const CreateProyecto = () => {
           tbody={tbody}
           thead={thead}
           onEdit={handleEdit}
-          route={"api/proyectos/"}
+          route={"api/proyect/"}
           onSuccess={handleFormSubmit}
-
         />
       </section>
     </section>
