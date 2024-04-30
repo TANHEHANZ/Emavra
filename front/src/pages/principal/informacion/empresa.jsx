@@ -1,21 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../../../styles/style-empresa.css";
+import apiService from "../../../services/endpint";
 const Empresa = () => {
-  const imgData = [
-    {
-      url: "https://scontent.fcbb2-2.fna.fbcdn.net/v/t39.30808-6/426274422_742307761368935_1126866670417351482_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_ohc=Ogvq_xw1nUYAb7RTdX9&_nc_ht=scontent.fcbb2-2.fna&cb_e2o_trans=q&oh=00_AfArnWeQyxjXteoW4oy98-I9QXs0kJdB-zzNmDP_BFxpNA&oe=662330CB",
-    },
-    {
-      url: "https://scontent.fcbb2-2.fna.fbcdn.net/v/t39.30808-6/435971549_742307751368936_4622345956034795144_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=5f2048&_nc_ohc=CqDsSA1kl1EAb4wrlrq&_nc_ht=scontent.fcbb2-2.fna&cb_e2o_trans=q&oh=00_AfAFo_aQCDKp_dQPfTDNg9QKKJQTfEH5zfy43WvSrL8wAg&oe=66230FDB",
-    },
-    {
-      url: "https://scontent.fcbb2-1.fna.fbcdn.net/v/t39.30808-6/435065717_741825914750453_1929606767316372569_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_ohc=gJl-Wsxtk_IAb7RlQDw&_nc_ht=scontent.fcbb2-1.fna&cb_e2o_trans=q&oh=00_AfDZ2O4IhlHr8U8yqafkL57ofJSbiaP9rFLtgPZVs8mJKw&oe=6623096E",
-    },
-    {
-      url: "https://scontent.fcbb2-2.fna.fbcdn.net/v/t39.30808-6/426274422_742307761368935_1126866670417351482_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_ohc=Ogvq_xw1nUYAb7RTdX9&_nc_ht=scontent.fcbb2-2.fna&cb_e2o_trans=q&oh=00_AfArnWeQyxjXteoW4oy98-I9QXs0kJdB-zzNmDP_BFxpNA&oe=662330CB",
-    },
-  ];
+  const [dataDestacado, setDataDestacado] = useState([]);
+
+  const data = async () => {
+    const fetch = await apiService.fetchData(
+      "GET",
+      "api/post/destacado"
+    );
+    setDataDestacado(fetch);
+  };
+
+  useEffect(() => {
+    data();
+  }, []);
+
+
 
   const objetivos = [
     {
@@ -47,15 +49,15 @@ const Empresa = () => {
           </button>
         </div>
         <div className="galery">
-          {imgData.map((img, i) => (
-            <img src={img.url} alt="img" key={i} />
+          {dataDestacado.map((img, i) => (
+            <img src={img} alt="img" key={i} />
           ))}
         </div>
       </div>
 
       <section className="quienes-somos">
         <img
-          src="https://scontent.fcbb2-2.fna.fbcdn.net/v/t39.30808-6/426274422_742307761368935_1126866670417351482_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_ohc=Ogvq_xw1nUYAb7RTdX9&_nc_ht=scontent.fcbb2-2.fna&cb_e2o_trans=q&oh=00_AfArnWeQyxjXteoW4oy98-I9QXs0kJdB-zzNmDP_BFxpNA&oe=662330CB"
+          src="https://scontent.fcbb2-1.fna.fbcdn.net/v/t39.30808-6/435129735_745886954344349_3179303480436942120_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=5f2048&_nc_ohc=2Dnyed2cE3EAb4aw716&_nc_ht=scontent.fcbb2-1.fna&cb_e2o_trans=q&oh=00_AfCAU18ryr6kEfiuMeAnyorNsDhSYT-vgSji3fQItNZiyQ&oe=663603B9"
           alt="img-quien-somos"
         />
         <div>
@@ -112,7 +114,7 @@ const Empresa = () => {
         </div>
         <section className="organigrama">
           <img
-            src="https://scontent.fcbb2-2.fna.fbcdn.net/v/t39.30808-6/426274422_742307761368935_1126866670417351482_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_ohc=Ogvq_xw1nUYAb7RTdX9&_nc_ht=scontent.fcbb2-2.fna&cb_e2o_trans=q&oh=00_AfArnWeQyxjXteoW4oy98-I9QXs0kJdB-zzNmDP_BFxpNA&oe=662330CB"
+            src="https://scontent.fcbb2-1.fna.fbcdn.net/v/t39.30808-6/435129735_745886954344349_3179303480436942120_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=5f2048&_nc_ohc=2Dnyed2cE3EAb4aw716&_nc_ht=scontent.fcbb2-1.fna&cb_e2o_trans=q&oh=00_AfCAU18ryr6kEfiuMeAnyorNsDhSYT-vgSji3fQItNZiyQ&oe=663603B9"
             alt="img-quien-somos"
           />
           <button>Expandir Organigrama</button>

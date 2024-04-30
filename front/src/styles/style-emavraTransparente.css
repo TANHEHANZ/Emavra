@@ -98,6 +98,13 @@
   text-align: center;
   height: 40px;
 }
+.table > table > tbody > tr > td {
+  max-width: 100px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
 .table > table > tbody > tr > td > button {
   border: none;
   background-color: transparent;

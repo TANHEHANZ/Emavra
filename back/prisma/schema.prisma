@@ -45,11 +45,9 @@ model EmavaTransparente {
 
 model Post {
   id_post        Int              @id @default(autoincrement())
-  userId         Int
-  userRelacion   User             @relation(fields: [userId], references: [id_user])
   titulo         String
-  Descripcion    String?          @db.VarChar(150)
-  contenido      String           @db.VarChar(5000)
+  Descripcion    String?          @db.VarChar(500)
+  contenido      String           @db.VarChar(7000)
   estado         Boolean          @default(true)
   destacar       Boolean          @default(false)
   fecha          DateTime         @default(now())
@@ -59,6 +57,8 @@ model Post {
   Proyectos      Proyectos[]
   Noticias       Noticias[]
   Manteniemiento Manteniemiento[]
+  User           User?            @relation(fields: [userId_user], references: [id_user])
+  userId_user    Int?
 }
 
 // model Multimedia {

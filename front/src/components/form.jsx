@@ -35,7 +35,7 @@ const Formulario = ({
     const postForm = await apiService.fetchData(
       evaluar,
       parametro,
-      { ...formData, multimedia: img, userId: 1, fecha },
+      { ...formData, multimedia: img, fecha },
       undefined
     );
     if (postForm) {

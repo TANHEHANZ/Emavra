@@ -46,16 +46,16 @@ CREATE TABLE "EmavaTransparente" (
 -- CreateTable
 CREATE TABLE "Post" (
     "id_post" SERIAL NOT NULL,
-    "userId" INTEGER NOT NULL,
     "titulo" TEXT NOT NULL,
-    "Descripcion" VARCHAR(150),
-    "contenido" VARCHAR(5000) NOT NULL,
+    "Descripcion" VARCHAR(500),
+    "contenido" VARCHAR(7000) NOT NULL,
     "estado" BOOLEAN NOT NULL DEFAULT true,
-    "destacar" BOOLEAN NOT NULL,
+    "destacar" BOOLEAN NOT NULL DEFAULT false,
     "fecha" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "ubicacion" TEXT NOT NULL,
     "multimedia" TEXT[],
     "autor" TEXT,
+    "userId_user" INTEGER,
 
     CONSTRAINT "Post_pkey" PRIMARY KEY ("id_post")
 );
@@ -70,4 +70,4 @@ ALTER TABLE "Noticias" ADD CONSTRAINT "Noticias_postId_fkey" FOREIGN KEY ("postI
 ALTER TABLE "Manteniemiento" ADD CONSTRAINT "Manteniemiento_postId_fkey" FOREIGN KEY ("postId") REFERENCES "Post"("id_post") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Post" ADD CONSTRAINT "Post_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id_user") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Post" ADD CONSTRAINT "Post_userId_user_fkey" FOREIGN KEY ("userId_user") REFERENCES "User"("id_user") ON DELETE SET NULL ON UPDATE CASCADE;

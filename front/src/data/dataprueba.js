@@ -1,22 +1,22 @@
 export const dataInicio = [
   {
-    url: "https://scontent.fcbb2-2.fna.fbcdn.net/v/t39.30808-6/426274422_742307761368935_1126866670417351482_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_ohc=Ogvq_xw1nUYAb7RTdX9&_nc_ht=scontent.fcbb2-2.fna&cb_e2o_trans=q&oh=00_AfArnWeQyxjXteoW4oy98-I9QXs0kJdB-zzNmDP_BFxpNA&oe=662330CB",
+    url: "https://scontent.fcbb2-2.fna.fbcdn.net/v/t39.30808-6/439244891_752436417022736_8610967434800292952_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=XBmo5eksuc4Ab4BVwdV&_nc_ht=scontent.fcbb2-2.fna&cb_e2o_trans=q&oh=00_AfDNSWQu4fI2dem-w1ye7JFR7jupKLVLzLTSWyZKWpJQmA&oe=6635F8BC",
   },
   {
-    url: "https://scontent.fcbb2-2.fna.fbcdn.net/v/t39.30808-6/435971549_742307751368936_4622345956034795144_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=5f2048&_nc_ohc=CqDsSA1kl1EAb4wrlrq&_nc_ht=scontent.fcbb2-2.fna&cb_e2o_trans=q&oh=00_AfAFo_aQCDKp_dQPfTDNg9QKKJQTfEH5zfy43WvSrL8wAg&oe=66230FDB",
+    url: "https://scontent.fcbb2-1.fna.fbcdn.net/v/t39.30808-6/439456255_752436977022680_240030879113071868_n.jpg?stp=dst-jpg_s600x600&_nc_cat=100&ccb=1-7&_nc_sid=5f2048&_nc_ohc=W3Xq0M8J6UoAb6MEW26&_nc_ht=scontent.fcbb2-1.fna&cb_e2o_trans=q&oh=00_AfACzGhkoteIdLBf9nUyEuvF89yyUZuyKmcjDvahv4MaOg&oe=66360C66",
   },
   {
-    url: "https://scontent.fcbb2-1.fna.fbcdn.net/v/t39.30808-6/435065717_741825914750453_1929606767316372569_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_ohc=gJl-Wsxtk_IAb7RlQDw&_nc_ht=scontent.fcbb2-1.fna&cb_e2o_trans=q&oh=00_AfDZ2O4IhlHr8U8yqafkL57ofJSbiaP9rFLtgPZVs8mJKw&oe=6623096E",
+    url: "https://scontent.fcbb2-1.fna.fbcdn.net/v/t39.30808-6/437976926_750178830581828_2711249371548585826_n.jpg?stp=dst-jpg_s600x600&_nc_cat=109&ccb=1-7&_nc_sid=5f2048&_nc_ohc=g9l04t_SjngQ7kNvgGeVfKU&_nc_oc=AdgWBluS9jM_QA1iVcIkaCv2TThfGjGryrC8WvGJOalRF6QrL3Aj93IO97TWf7-gi9E&_nc_ht=scontent.fcbb2-1.fna&cb_e2o_trans=q&oh=00_AfBGPHTxxWVBJn3RBNjRCvFCOBYSIaj705qwlxNcIPGqbQ&oe=6636069A",
   },
   {
-    url: "https://scontent.fcbb2-2.fna.fbcdn.net/v/t39.30808-6/426274422_742307761368935_1126866670417351482_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_ohc=Ogvq_xw1nUYAb7RTdX9&_nc_ht=scontent.fcbb2-2.fna&cb_e2o_trans=q&oh=00_AfArnWeQyxjXteoW4oy98-I9QXs0kJdB-zzNmDP_BFxpNA&oe=662330CB",
+    url: "https://scontent.fcbb2-2.fna.fbcdn.net/v/t39.30808-6/438696151_749767247289653_6530669834636219546_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_ohc=bCxwWCg9mWEAb7JxRXD&_nc_ht=scontent.fcbb2-2.fna&cb_e2o_trans=q&oh=00_AfDDybzSO_mpYe6yZUWj44ETQPymqDb43ImT4-zjmN8IJQ&oe=6635FD5D",
   },
 ];
 export const dataCarroucel = [
   {
     id: 1,
     url_recurso:
-      "https://scontent.fcbb2-1.fna.fbcdn.net/v/t39.30808-6/435065717_741825914750453_1929606767316372569_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_ohc=gJl-Wsxtk_IAb7RlQDw&_nc_ht=scontent.fcbb2-1.fna&cb_e2o_trans=q&oh=00_AfDZ2O4IhlHr8U8yqafkL57ofJSbiaP9rFLtgPZVs8mJKw&oe=6623096E",
+      "https://scontent.fcbb2-2.fna.fbcdn.net/v/t39.30808-6/438696151_749767247289653_6530669834636219546_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_ohc=bCxwWCg9mWEAb7JxRXD&_nc_ht=scontent.fcbb2-2.fna&cb_e2o_trans=q&oh=00_AfDDybzSO_mpYe6yZUWj44ETQPymqDb43ImT4-zjmN8IJQ&oe=6635FD5D",
     titulo: "Mantenimiento del Cementerio General de Cochabamba",
     descripcion:
       "Durante el mes de octubre se realizaron trabajos de mantenimiento en el Cementerio General de Cochabamba.Durante el mes de octubre se realizaron trabajos de mantenimiento en el Cementerio General de Cochabamba...",
@@ -24,7 +24,7 @@ export const dataCarroucel = [
   {
     id: 2,
     url_recurso:
-      "https://scontent.fcbb2-2.fna.fbcdn.net/v/t39.30808-6/426274422_742307761368935_1126866670417351482_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_ohc=Ogvq_xw1nUYAb7RTdX9&_nc_ht=scontent.fcbb2-2.fna&cb_e2o_trans=q&oh=00_AfArnWeQyxjXteoW4oy98-I9QXs0kJdB-zzNmDP_BFxpNA&oe=662330CB",
+      "https://scontent.fcbb2-2.fna.fbcdn.net/v/t39.30808-6/437146175_749319250667786_8378801782111403089_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=5f2048&_nc_ohc=LkuantEp0bIAb7P4tfB&_nc_ht=scontent.fcbb2-2.fna&cb_e2o_trans=q&oh=00_AfCwt-BDvKegyyTobgJ21v55XBnzUbbwQQR9lvFOv5cVuQ&oe=6635F7E9",
     titulo: "Mantenimiento del Cementerio General de Cochabamba",
     descripcion:
       "Durante el mes de octubre se realizaron trabajos de mantenimiento en el Cementerio General de Cochabamba.Durante el mes de octubre se realizaron trabajos de mantenimiento en el Cementerio General de Cochabamba...",
@@ -32,7 +32,7 @@ export const dataCarroucel = [
   {
     id: 3,
     url_recurso:
-      "https://scontent.fcbb2-2.fna.fbcdn.net/v/t39.30808-6/426274422_742307761368935_1126866670417351482_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_ohc=Ogvq_xw1nUYAb7RTdX9&_nc_ht=scontent.fcbb2-2.fna&cb_e2o_trans=q&oh=00_AfArnWeQyxjXteoW4oy98-I9QXs0kJdB-zzNmDP_BFxpNA&oe=662330CB",
+      "https://scontent.fcbb2-1.fna.fbcdn.net/v/t39.30808-6/435129735_745886954344349_3179303480436942120_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=5f2048&_nc_ohc=2Dnyed2cE3EAb4aw716&_nc_ht=scontent.fcbb2-1.fna&cb_e2o_trans=q&oh=00_AfCAU18ryr6kEfiuMeAnyorNsDhSYT-vgSji3fQItNZiyQ&oe=663603B9",
     titulo: "Mantenimiento del Cementerio General de Cochabamba",
     descripcion:
       "Durante el mes de octubre se realizaron trabajos de mantenimiento en el Cementerio General de Cochabamba.Durante el mes de octubre se realizaron trabajos de mantenimiento en el Cementerio General de Cochabamba...",
@@ -40,7 +40,7 @@ export const dataCarroucel = [
   {
     id: 4,
     url_recurso:
-      "https://scontent.fcbb2-2.fna.fbcdn.net/v/t39.30808-6/426274422_742307761368935_1126866670417351482_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_ohc=Ogvq_xw1nUYAb7RTdX9&_nc_ht=scontent.fcbb2-2.fna&cb_e2o_trans=q&oh=00_AfArnWeQyxjXteoW4oy98-I9QXs0kJdB-zzNmDP_BFxpNA&oe=662330CB",
+      "https://scontent.fcbb2-1.fna.fbcdn.net/v/t39.30808-6/435129735_745886954344349_3179303480436942120_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=5f2048&_nc_ohc=2Dnyed2cE3EAb4aw716&_nc_ht=scontent.fcbb2-1.fna&cb_e2o_trans=q&oh=00_AfCAU18ryr6kEfiuMeAnyorNsDhSYT-vgSji3fQItNZiyQ&oe=663603B9",
     titulo: "Mantenimiento ",
     descripcion:
       "Durante el mes de octubre se realizaron trabajos de mantenimiento en el Cementerio General de Cochabamba.Durante el mes de octubre se realizaron trabajos de mantenimiento en el Cementerio General de Cochabamba...",

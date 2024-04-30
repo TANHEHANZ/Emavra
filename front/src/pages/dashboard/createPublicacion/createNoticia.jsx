@@ -24,8 +24,6 @@ const CreateNoticia = () => {
     setFormDataToEdit(row);
     setLlenarForm(!llenarForm);
   };
-
-  
   useEffect(() => {
     if (noticiasData.length > 0) {
       setTbody(noticiasData);

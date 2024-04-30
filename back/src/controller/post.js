@@ -62,11 +62,32 @@ const PostController = {
         data: req.body,
       });
       formatResponse(res, "Actualizo", updatePostData);
-      
     } catch (error) {
       res.json({ message: "Error en la peticion" });
     }
   },
+
+  getAllDataDestacada: async (req, res) => {
+    try {
+      const getsAllDate = await prisma.post.findMany({
+        where: {
+          destacar: true,
+        },
+        take: 4,
+        select: {
+          multimedia: true
+        }
+      });
+  
+      // Mapear los resultados y extraer solo las URLs de las imágenes
+      const imageUrls = getsAllDate.map(post => post.multimedia[0]);
+  
+      res.status(200).json(imageUrls);
+    } catch (error) {
+      res.status(500).json({ error: "Error al obtener los datos destacados." });
+    }
+  },
+  
 };
 
 module.exports = PostController;

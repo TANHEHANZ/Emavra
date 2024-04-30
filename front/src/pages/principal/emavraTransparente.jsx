@@ -21,7 +21,7 @@ const EmavraTransparente = () => {
         </div>
         <div className="imgTransparente">
           <img
-            src="https://scontent.fcbb2-2.fna.fbcdn.net/v/t39.30808-6/426274422_742307761368935_1126866670417351482_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_ohc=Ogvq_xw1nUYAb7RTdX9&_nc_ht=scontent.fcbb2-2.fna&cb_e2o_trans=q&oh=00_AfArnWeQyxjXteoW4oy98-I9QXs0kJdB-zzNmDP_BFxpNA&oe=662330CB"
+            src="https://scontent.fcbb2-2.fna.fbcdn.net/v/t39.30808-6/426274422_742307761368935_1126866670417351482_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_ohc=DvdYapUf77QAb7jIsck&_nc_ht=scontent.fcbb2-2.fna&cb_e2o_trans=q&oh=00_AfAm17KVaKcL9J6ZanzrZJT4AC5fAOa67cHDnRcBnLeQ1Q&oe=6636164B"
             alt=""
           />
         </div>

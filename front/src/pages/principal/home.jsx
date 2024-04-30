@@ -3,10 +3,11 @@ import "../../styles/style-home.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Carrosucel from "../../components/carrosucel";
 import { dataCarroucel, dataInicio } from "../../data/dataprueba";
+import apiService from "../../services/endpint";
 const Home = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-
+  const [dataDestacado, setDataDestacado] = useState([]);
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) =>
@@ -17,6 +18,19 @@ const Home = () => {
     return () => clearInterval(interval);
   }, [dataInicio.length]);
 
+  const data = async () => {
+    const fetch = await apiService.fetchData(
+      "GET",
+      "api/post/destacado"
+    );
+    setDataDestacado(fetch);
+  };
+
+  useEffect(() => {
+    data();
+  }, []);
+
+  console.log(dataDestacado)
   return (
     <div>
       <article className="contenido">
@@ -37,11 +51,11 @@ const Home = () => {
           </section>
         </div>
         <div className="slider">
-          {dataInicio &&
-            dataInicio.map((item, i) => (
+          {dataDestacado &&
+            dataDestacado.map((item, i) => (
               <img
                 key={i}
-                src={item.url}
+                src={item}
                 alt={`imgCarrusel${i + 1}`}
                 className="slider-img"
                 style={{
