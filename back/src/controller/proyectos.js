@@ -5,6 +5,7 @@ const { formatResponse } = require("../utils/responseHanddler");
 const prisma = new PrismaClient();
 
 const ProyectoController = {
+
   getProyect: async (req, res) => {
     try {
       const getproyecto = await prisma.proyectos.findMany({

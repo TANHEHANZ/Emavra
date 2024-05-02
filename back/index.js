@@ -9,6 +9,7 @@ const PostRoutes = require("./src/routes/RoutePost");
 const ClaudinaryRoutes = require("./src/routes/RouteClaudinary");
 const ManteniemintoRoutes = require("./src/routes/RouteMantenimiento");
 const NoticiasRoutes = require("./src/routes/RoutesNoticias");
+const destacarRoutes = require("./src/routes/RoutesDestacados");
 app.use(cors());
 app.use(
   bodyParser.urlencoded({
@@ -22,6 +23,7 @@ app.use("/api/post", PostRoutes);
 app.use("/api/proyect", ProyectRoutes);
 app.use("/api/noticias", NoticiasRoutes);
 app.use("/api/users", userRoutes);
+app.use("/api/destacar", destacarRoutes);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);

@@ -3,7 +3,7 @@ const router = express.Router();
 
 const { ProyectoController } = require("../controller/proyectos");
 
-router.get("/", ProyectoController.getProyect);
+router.get("/",ProyectoController.getProyect);
 router.get("/:idProyect", ProyectoController.getProyectId);
 router.put("/:idProyect", ProyectoController.updateProtect);
 router.delete("/:idProyect", ProyectoController.deleteProyect);

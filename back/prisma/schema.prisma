@@ -39,8 +39,6 @@ model EmavaTransparente {
   multimediaId     Int
   fecha            DateTime
   multimedia       String[]
-
-  // multimediaRelacion Multimedia @relation(fields: [multimediaId], references: [id_multimedia])
 }
 
 model Post {
@@ -61,9 +59,3 @@ model Post {
   userId_user    Int?
 }
 
-// model Multimedia {
-//   id_multimedia     Int                 @id @default(autoincrement())
-//   url_recurso       String              @db.VarChar(200)
-//   // posts             Post[]              @relation("PostMultimedia") 
-//   EmavaTransparente EmavaTransparente[]
-// }
