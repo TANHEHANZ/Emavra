@@ -7,7 +7,10 @@ import apiService from "../../services/endpint";
 const Home = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const [dataDestacado, setDataDestacado] = useState([]);
+  const [destacado, setDestacado] = useState([]);
+  const [noticias, setNoticias] = useState([]);
+  const [proyectos, setProyectos] = useState([]);
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) =>
@@ -19,18 +22,25 @@ const Home = () => {
   }, [dataInicio.length]);
 
   const data = async () => {
-    const fetch = await apiService.fetchData(
-      "GET",
-      "api/post/destacado"
-    );
-    setDataDestacado(fetch);
+    try {
+      const [destacado, noticias, proyectos] = await Promise.all([
+        apiService.fetchData("GET", "api/post/destacado"),
+        apiService.fetchData("GET", "api/destacar/noticias"),
+        apiService.fetchData("GET", "api/destacar/proyectos"),
+      ]);
+
+      setDestacado(destacado);
+      setNoticias(noticias);
+      setProyectos(proyectos);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   useEffect(() => {
     data();
   }, []);
 
-  console.log(dataDestacado)
   return (
     <div>
       <article className="contenido">
@@ -51,8 +61,8 @@ const Home = () => {
           </section>
         </div>
         <div className="slider">
-          {dataDestacado &&
-            dataDestacado.map((item, i) => (
+          {destacado &&
+            destacado.map((item, i) => (
               <img
                 key={i}
                 src={item}
@@ -67,7 +77,7 @@ const Home = () => {
         </div>
       </article>
 
-      <Carrosucel title={"Noticias"} data={dataCarroucel} />
+      <Carrosucel title={"Noticias"} data={noticias} />
       <section className="proyectos">
         <div className="datosProyecto">
           <h3>Proyectos</h3>
@@ -82,9 +92,10 @@ const Home = () => {
           </button>
         </div>
         <div className="sliderimg">
-          {dataInicio.map((item, i) => (
-            <img src={item.url} alt="img" key={i} />
-          ))}
+          {proyectos &&
+            proyectos.map((item, i) => (
+              <img src={item.multimedia} alt="img" key={i} />
+            ))}
         </div>
       </section>
     </div>
