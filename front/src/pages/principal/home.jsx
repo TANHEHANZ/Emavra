@@ -2,24 +2,25 @@ import React, { useEffect, useState } from "react";
 import "../../styles/style-home.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Carrosucel from "../../components/carrosucel";
-import { dataCarroucel, dataInicio } from "../../data/dataprueba";
 import apiService from "../../services/endpint";
+import { useNavigate } from "react-router-dom";
 const Home = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
   const [destacado, setDestacado] = useState([]);
   const [noticias, setNoticias] = useState([]);
   const [proyectos, setProyectos] = useState([]);
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) =>
-        prevIndex === dataInicio.length - 1 ? 0 : prevIndex + 1
+        prevIndex === destacado.length - 1 ? 0 : prevIndex + 1
       );
     }, 2000);
 
     return () => clearInterval(interval);
-  }, [dataInicio.length]);
+  }, [destacado.length]);
 
   const data = async () => {
     try {
@@ -29,14 +30,17 @@ const Home = () => {
         apiService.fetchData("GET", "api/destacar/proyectos"),
       ]);
 
-      setDestacado(destacado);
-      setNoticias(noticias);
-      setProyectos(proyectos);
+      if (destacado && noticias && proyectos) {
+        setDestacado(destacado.data);
+        setNoticias(noticias.data);
+        setProyectos(proyectos.data);
+      } else {
+        toast.error("Error en el servidor " + "codigo :" + destacado);
+      }
     } catch (error) {
       console.error(error);
     }
   };
-
   useEffect(() => {
     data();
   }, []);
@@ -56,8 +60,10 @@ const Home = () => {
             "EMAVRA".
           </p>
           <section className="acciones">
-            <button>Contactanos</button>
-            <button>Proyectos</button>
+            <button onClick={() => navigate("/contactanos")}>
+              Contactanos
+            </button>
+            <button onClick={() => navigate("/Proyectos")}>Proyectos</button>
           </section>
         </div>
         <div className="slider">
@@ -82,12 +88,14 @@ const Home = () => {
         <div className="datosProyecto">
           <h3>Proyectos</h3>
           <p>
-            Durante el mes de octubre se realizaron trabajos de mantenimiento en
-            el Cementerio General de Cochabamba.Durante el mes de octubre se
-            realizaron trabajos de mantenimiento en el Cementerio General de
-            Cochabamba...
+            Te invitamos a descubrir más sobre los proyectos realizados por
+            Emavra donde nos dedicamos a crear y mantener entornos verdes que
+            mejoran la calidad de vida de las comunidades. Conoce cómo nuestros
+            esfuerzos contribuyen a la conservación del medio ambiente y al
+            bienestar social, transformando parques en lugares vibrantes y
+            acogedores para todos.
           </p>
-          <button>
+          <button onClick={() => navigate("/Proyectos")}>
             leer más <FontAwesomeIcon icon="fa-solid fa-caret-right" />
           </button>
         </div>

@@ -12,19 +12,16 @@ const apiService = {
         },
         body: body ? JSON.stringify(body) : undefined,
       });
-      
-      if (!fetched.ok) {
-        throw new Error("La solicitud falló con estado " + fetched.status);
-      }
-      return await fetched.json();
+
+      const responseData = await fetched.json();
+      return {
+        status: fetched.status,
+        data: responseData,
+      };
     } catch (error) {
       throw new Error(error.message);
     }
-  }
+  },
 };
 
 export default apiService;
-
-
-
-//  eficiensa en costos 

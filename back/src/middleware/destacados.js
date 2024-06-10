@@ -1,4 +1,5 @@
 const { PrismaClient } = require("@prisma/client");
+const { capError } = require("../utils/errorHanddler");
 const prisma = new PrismaClient();
 const filterDestacados = (relation) => {
   return async (req, res, next) => {

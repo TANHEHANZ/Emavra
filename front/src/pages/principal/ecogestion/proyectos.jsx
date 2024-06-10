@@ -1,22 +1,27 @@
 import React, { useEffect, useState } from "react";
 import Renderdescription from "../../../components/renderdescription";
 import Carrosucel from "../../../components/carrosucel";
-import { dataCarroucel } from "../../../data/dataprueba";
 import img from "../../../assets/7.jpg";
 import apiService from "../../../services/endpint";
 const Proyectos = () => {
   const [pasoParam, setPasoParam] = useState("");
   const [proyectData, setProyectData] = useState([]);
+  const [proyectDataAll, setProyectDataAll] = useState([]);
   const getAllProyect = async () => {
-    const dataAll = await apiService.fetchData("GET", "api/proyect");
-    setProyectData(dataAll);
+    const [destacados, proyectAll] = await Promise.all([
+      apiService.fetchData("GET", "api/destacar/proyectos"),
+      apiService.fetchData("GET", "api/proyectos"),
+    ]);
+
+    setProyectData(destacados.data);
+    setProyectDataAll(proyectAll.data);
   };
+  console.log(proyectDataAll);
   useEffect(() => {
     getAllProyect();
   }, []);
-  console.log(proyectData);
   return (
-    <section>
+    <section className="proyectosCuerpo">
       <div className="Head-Ecogestion">
         <section>
           <h1>Proyectos con emavra </h1>
@@ -30,20 +35,25 @@ const Proyectos = () => {
         </section>
         <img src={img} alt="img-Proyecto" />
       </div>
-      <Carrosucel title={"Proyectos destacados"} data={dataCarroucel} />
+      <Carrosucel title={"Proyectos"} data={proyectData} />
 
       <section className="todoList">
         <div className="sliderimg">
-          {dataCarroucel.map((item, i) => (
-            <img
-              src={item.url_recurso}
-              alt="img"
-              onClick={() => setPasoParam(item)}
-            />
-          ))}
+          {proyectDataAll.map(
+            (item, i) =>
+              item.postRelacion &&
+              item.postRelacion.multimedia &&
+              item.postRelacion.multimedia.length > 0 && (
+                <img
+                  key={i}
+                  src={item.postRelacion.multimedia[0]}
+                  alt={item.postRelacion.titulo}
+                  onClick={() => setPasoParam(item.postRelacion)}
+                />
+              )
+          )}
         </div>
-
-        <Renderdescription renderData={pasoParam} titulo="proyecto" />
+        <Renderdescription renderData={pasoParam} titulo="proyectos" />
       </section>
     </section>
   );

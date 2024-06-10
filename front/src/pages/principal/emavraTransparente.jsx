@@ -1,8 +1,8 @@
 import React from "react";
-
 import "../../styles/style-emavraTransparente.css";
 import { emavraTransparenteData } from "../../data/dataprueba";
 import Tablebody from "../../components/table";
+import imgPortada from "../../assets/parque1.jpg";
 
 const EmavraTransparente = () => {
   return (
@@ -20,10 +20,7 @@ const EmavraTransparente = () => {
           </p>
         </div>
         <div className="imgTransparente">
-          <img
-            src="https://scontent.fcbb2-2.fna.fbcdn.net/v/t39.30808-6/426274422_742307761368935_1126866670417351482_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_ohc=DvdYapUf77QAb7jIsck&_nc_ht=scontent.fcbb2-2.fna&cb_e2o_trans=q&oh=00_AfAm17KVaKcL9J6ZanzrZJT4AC5fAOa67cHDnRcBnLeQ1Q&oe=6636164B"
-            alt=""
-          />
+          <img src={imgPortada} alt="" />
         </div>
       </div>
 

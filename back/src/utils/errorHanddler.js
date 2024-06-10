@@ -10,6 +10,7 @@ const capError = (error, res) => {
         error: error.code,
       });
   } else {
+    console.log(error)
     res.status(500).json({ message: "Error interno del servidor" });
   }
 };

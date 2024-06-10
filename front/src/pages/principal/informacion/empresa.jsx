@@ -10,7 +10,7 @@ const Empresa = () => {
       "GET",
       "api/post/destacado"
     );
-    setDataDestacado(fetch);
+    setDataDestacado(fetch.data);
   };
 
   useEffect(() => {

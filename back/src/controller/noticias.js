@@ -52,5 +52,24 @@ const NoticiaController = {
       capError(error, res);
     }
   },
+  getNoticiasID: async (req, res) => {
+    try {
+      const id = Number(req.params.idNot);
+      const getDataNoticias = await prisma.noticias.findMany({
+        where: {
+          postRelacion: {
+            id_post: id,
+          },
+        },
+        include: {
+          postRelacion: true,
+        },
+      });
+
+      res.json(getDataNoticias);
+    } catch (error) {
+      capError(error, res);
+    }
+  },
 };
 module.exports = NoticiaController;

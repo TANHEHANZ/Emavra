@@ -138,3 +138,15 @@ export const camposEmavra = [
   { nombre: "destacar", label: "Destacar", tipo: "checkbox" },
   { nombre: "estado", label: "visible", tipo: "checkbox" },
 ];
+
+export const theadTransparente = [
+  "#",
+  "Nombre",
+  "Descripcion",
+  "Tipo Archivo",
+  "Fecha",
+];
+export const camposTrsparente = [
+  { nombre: "nombre", label: "Nombre", tipo: "text" },
+  { nombre: "fecha", label: "fecha", tipo: "date" },
+];

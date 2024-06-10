@@ -9,7 +9,7 @@ datasource db {
 
 model User {
   id_user  Int    @id @default(autoincrement())
-  email    String @db.VarChar(100)
+  email    String @unique @db.VarChar(100)
   password String @db.VarChar(150)
   Post     Post[]
 }
@@ -32,11 +32,17 @@ model Manteniemiento {
   postRelacion     Post @relation(fields: [postId], references: [id_post])
 }
 
+model Parques {
+  id_parques   Int  @id @default(autoincrement())
+  postId       Int
+  postRelacion Post @relation(fields: [postId], references: [id_post])
+}
+
 model EmavaTransparente {
   id_transparencia Int      @id @default(autoincrement())
   Nombre           String
   Descripcion      String?  @db.VarChar(150)
-  multimediaId     Int
+  tipo             String
   fecha            DateTime
   multimedia       String[]
 }
@@ -57,5 +63,5 @@ model Post {
   Manteniemiento Manteniemiento[]
   User           User?            @relation(fields: [userId_user], references: [id_user])
   userId_user    Int?
+  Parques        Parques[]
 }
-

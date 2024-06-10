@@ -1,6 +1,7 @@
 const { PrismaClient } = require("@prisma/client");
 const { capError } = require("../utils/errorHanddler");
 const { formatResponse } = require("../utils/responseHanddler");
+const bcrypt = require("bcryptjs");
 
 const prisma = new PrismaClient();
 
@@ -15,11 +16,17 @@ const UserController = {
   },
   createUser: async (req, res) => {
     try {
+      const password = req.body.password;
+      const hashedPassword = await bcrypt.hash(password, 10);
       const createucer = await prisma.user.create({
-        data: req.body,
+        data: {
+          ...req.body,
+          password: hashedPassword,
+        },
       });
       formatResponse(res, "create", createucer);
     } catch (error) {
+      console.log(error);
       capError(error, res);
     }
   },
@@ -34,6 +41,5 @@ const UserController = {
       capError(error, res);
     }
   },
-
 };
 module.exports = UserController;

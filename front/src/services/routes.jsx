@@ -12,7 +12,7 @@ import Viveros from "../pages/principal/ecogestion/viveros";
 export const dataRoutes = [
   {
     name: "inicio",
-    path: "",
+    path: "/",
     component: Home,
   },
   {
@@ -25,7 +25,7 @@ export const dataRoutes = [
       },
       {
         name: "Empresa",
-        path: "empresa",
+        path: "empresa",  
         component: Empresa,
       },
       {
@@ -37,12 +37,12 @@ export const dataRoutes = [
   },
   {
     name: "Ecogestion",
+    path: null,
     children: [
       {
         name: "Parques",
         path: "parques",
         component: Parques,
-     
       },
 
       {

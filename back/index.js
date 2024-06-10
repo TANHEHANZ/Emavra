@@ -10,6 +10,9 @@ const ClaudinaryRoutes = require("./src/routes/RouteClaudinary");
 const ManteniemintoRoutes = require("./src/routes/RouteMantenimiento");
 const NoticiasRoutes = require("./src/routes/RoutesNoticias");
 const destacarRoutes = require("./src/routes/RoutesDestacados");
+const ParquesRoute = require("./src/routes/RouteParque");
+const EmavraRoute = require("./src/routes/RouteEmavraTransparente");
+
 app.use(cors());
 app.use(
   bodyParser.urlencoded({
@@ -20,8 +23,10 @@ app.use(bodyParser.json());
 app.use("/api/claudynary", ClaudinaryRoutes);
 app.use("/api/mantenimiento", ManteniemintoRoutes);
 app.use("/api/post", PostRoutes);
-app.use("/api/proyect", ProyectRoutes);
+app.use("/api/proyectos", ProyectRoutes);
 app.use("/api/noticias", NoticiasRoutes);
+app.use("/api/parques", ParquesRoute);
+app.use("/api/emavraTransparente", EmavraRoute);
 app.use("/api/users", userRoutes);
 app.use("/api/destacar", destacarRoutes);
 

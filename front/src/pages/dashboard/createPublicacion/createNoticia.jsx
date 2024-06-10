@@ -13,7 +13,7 @@ const CreateNoticia = () => {
 
   const fetchedNoticias = async () => {
     const noticia = await apiService.fetchData("GET", "api/noticias");
-    setNoticiasData(noticia);
+    setNoticiasData(noticia.data);
   };
 
   useEffect(() => {

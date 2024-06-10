@@ -1,15 +1,27 @@
+.proyectosCuerpo {
+  width: 100%;
+}
 .Head-Ecogestion {
   display: flex;
   width: 100%;
   position: relative;
   height: 75vh;
   align-items: center;
+  overflow: hidden;
 }
 .Head-Ecogestion > img {
   width: 800px;
   height: 380px;
   object-fit: cover;
   border-radius: 15px;
+  -webkit-animation-name: zoomInUp;
+  animation-name: zoomInUp;
+  -webkit-animation-duration: 1s;
+  animation-duration: 2s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  z-index: -1;
+
 }
 .Head-Ecogestion > section {
   width: 30%;
@@ -20,6 +32,8 @@
   position: relative;
   color: var(--white);
 }
+
+
 .Head-Ecogestion > section > h1 {
   text-align: start;
   align-self: self-start;
@@ -28,6 +42,8 @@
   background-color: var(--primary-color);
   border-radius: 5px;
   font-size: 24px;
+  animation: slide-in-left 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+
 }
 .Head-Ecogestion > section > p {
   font-size: 14px;
@@ -38,6 +54,8 @@
   left: 0;
   width: 120%;
   border-radius: 0 80px 80px;
+  animation: slide-in-left 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+
 }
 
 /* -----------------------     todoList ------------- */
@@ -55,7 +73,7 @@
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 250px;
   grid-gap: 5px;
-  padding: .5em;
+  padding: 0.5em;
   height: 80vh;
   overflow-y: scroll;
 }
@@ -64,7 +82,7 @@
   height: 100%;
   object-fit: cover;
   cursor: pointer;
-  border-radius: .5em;
+  border-radius: 0.5em;
 }
 .sliderimg > img:nth-child(2n + 1) {
   grid-row-start: span 2;
@@ -72,7 +90,7 @@
 
 .sliderimg > img:nth-child(4n) {
   grid-row-start: span 2;
-}   
+}
 .remder-data-slider {
   width: 20em;
   display: flex;
@@ -86,24 +104,23 @@
   padding: 0.5em;
   border-radius: 0.5em;
 }
-.remder-data-slider > button{
-background-color: var(--secondary-color);
-color:var(--white);
-border: none;
-cursor: pointer;
-padding: .5em;
-display: flex;
-gap: 2em;
-justify-content: center;
-align-items: center;
-border-radius: 5px;
-border: solid 1px var(--secondary-color);
-transition:all .5s ease-in ;
+.remder-data-slider > button {
+  background-color: var(--secondary-color);
+  color: var(--white);
+  border: none;
+  cursor: pointer;
+  padding: 0.5em;
+  display: flex;
+  gap: 2em;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  border: solid 1px var(--secondary-color);
+  transition: all 0.5s ease-in;
 }
 
-
-.remder-data-slider > button:hover{
-background-color: var(--white);
-border: solid 1px var(--secondary-color);
-color: var(--secondary-color);
+.remder-data-slider > button:hover {
+  background-color: var(--white);
+  border: solid 1px var(--secondary-color);
+  color: var(--secondary-color);
 }

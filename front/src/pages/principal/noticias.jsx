@@ -5,7 +5,7 @@ const Noticias = () => {
   const [noti, setNoti] = useState([]);
   const fechedNoticias = async () => {
     const noticias = await apiService.fetchData("GET", "api/noticias");
-    setNoti(noticias);
+    setNoti(noticias.data);
   };
   useEffect(() => {
     fechedNoticias();

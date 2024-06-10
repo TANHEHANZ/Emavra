@@ -5,7 +5,6 @@ const { formatResponse } = require("../utils/responseHanddler");
 const prisma = new PrismaClient();
 
 const ProyectoController = {
-
   getProyect: async (req, res) => {
     try {
       const getproyecto = await prisma.proyectos.findMany({
@@ -21,13 +20,19 @@ const ProyectoController = {
   getProyectId: async (req, res) => {
     try {
       const id = Number(req.params.idProyect);
-      const getProyectoId = await prisma.proyectos.findUnique({
+      const getProyectoId = await prisma.proyectos.findMany({
         where: {
-          id_proyectos: id,
+          postRelacion: {
+            id_post: id,
+          },
+        },
+        include: {
+          postRelacion: true,
         },
       });
       res.json(getProyectoId);
     } catch (error) {
+      console.log(error);
       capError(error, res);
     }
   },

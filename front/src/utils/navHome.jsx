@@ -1,28 +1,23 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
-const Nav = ({ links, className, desactivando }) => {
+const Nav = ({ links, className }) => {
   const navigate = useNavigate();
-  const [activeIndex, setActiveIndex] = useState(null);
+  const location = useLocation();
+  const [activeIndex, setActiveIndex] = useState();
+  const [openChildIndex, setOpenChildIndex] = useState(null);
 
-  useEffect(() => {
-    const savedActiveIndex = localStorage.getItem("activeIndex");
-    if (savedActiveIndex) {
-      setActiveIndex(parseInt(savedActiveIndex));
-    }
-  }, []);
-
-  const navigateTo = (path, index) => {
-    localStorage.setItem("activeIndex", index.toString());
+  const navigateTo = (path) => {
     navigate(path);
   };
 
-  const handleItemClick = (index, path) => {
-    if (index === activeIndex) {
-      setActiveIndex(null);
+  const handleItemClick = (index, path, hasChildren) => {
+    navigateTo(path);
+    setActiveIndex(index);
+    if (hasChildren) {
+      setOpenChildIndex(openChildIndex === index ? null : index);
     } else {
-      setActiveIndex(index); 
-      navigateTo(path, index);
+      setOpenChildIndex(null);
     }
   };
 
@@ -33,19 +28,14 @@ const Nav = ({ links, className, desactivando }) => {
           <li key={i} className={activeIndex === i ? "active" : ""}>
             <div
               onClick={() => {
-                handleItemClick(i, navegacion.path);
+                handleItemClick(i, navegacion.path, !!navegacion.children);
               }}
             >
               {navegacion.name}
             </div>
-            {navegacion.children && (
+            {navegacion.children && openChildIndex === i && (
               <div>
-                {activeIndex === i && (
-                  <Nav
-                    links={navegacion.children}
-                    className="child-nav"
-                  />
-                )}
+                <Nav links={navegacion.children} className="child-nav" />
               </div>
             )}
           </li>

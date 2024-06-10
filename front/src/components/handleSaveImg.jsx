@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { uploadImageToCloudinary } from "../services/claudinary";
+import { uploadFileToCloudinary } from "../services/claudinary";
 
 const HandleSaveImg = ({ getImg, setAgregar, agregar }) => {
   const [file, setFile] = useState(null);
@@ -16,7 +16,7 @@ const HandleSaveImg = ({ getImg, setAgregar, agregar }) => {
     }
     try {
       const tipo = file.name.split(".").pop();
-      const imageUrl = await uploadImageToCloudinary(file, tipo);
+      const imageUrl = await uploadFileToCloudinary(file, tipo);
       if (imageUrl.length != null) {
         getImg();
       }

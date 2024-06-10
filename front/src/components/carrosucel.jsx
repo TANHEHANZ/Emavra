@@ -1,9 +1,10 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
-import img from "../assets/7.jpg";
+import { useNavigate } from "react-router-dom";
 
 const Carrosucel = ({ title, data }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const navigate = useNavigate();
 
   const goToNextSlide = () => {
     const nextIndex = (currentIndex + 1) % data.length;
@@ -15,9 +16,14 @@ const Carrosucel = ({ title, data }) => {
     setCurrentIndex(prevIndex);
   };
 
+  const leerArticulo = (id) => {
+    const type = title.toLowerCase();
+    navigate(`/detalle/${type}/${id}`);
+  };
+
   return (
     <article className="container-carroucel">
-      <h2>{title}</h2>
+      <h2>{title} Destacados</h2>
       <div className="carrucel">
         <button onClick={goToPrevSlide}>
           <FontAwesomeIcon icon="fa-solid fa-caret-left" />
@@ -30,13 +36,13 @@ const Carrosucel = ({ title, data }) => {
               <p>{data[currentIndex].Descripcion}</p>
             </>
           )}
-          <button>
+          <button onClick={() => leerArticulo(data[currentIndex].id_post)}>
             leer más <FontAwesomeIcon icon="fa-solid fa-caret-right" />
           </button>
         </section>
 
         <img
-          src={data[currentIndex]?.multimedia }
+          src={data[currentIndex]?.multimedia}
           alt={`imgCarrusel${currentIndex + 1}`}
         />
 

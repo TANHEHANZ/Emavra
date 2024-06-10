@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import apiService from "../services/endpint";
 import useContextImg from "./context/context-imgPost";
+import useAuthStore from "./context/userConstext";
 
 const Formulario = ({
   campos,
@@ -11,6 +12,7 @@ const Formulario = ({
 }) => {
   const [formData, setFormData] = useState(formDataToEdit.postRelacion || "");
   const { img, setImg } = useContextImg();
+  const { token } = useAuthStore();
 
   useEffect(() => {
     setImg(formData.multimedia ? formData.multimedia : []);
@@ -36,7 +38,7 @@ const Formulario = ({
       evaluar,
       parametro,
       { ...formData, multimedia: img, fecha },
-      undefined
+      token.token
     );
     if (postForm) {
       onSuccess();

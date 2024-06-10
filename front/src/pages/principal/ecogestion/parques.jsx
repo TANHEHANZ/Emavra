@@ -1,16 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../../../styles/style-ecogestion.css";
-import Carrosucel from "../../../components/carrosucel";
-import { dataCarroucel } from "../../../data/dataprueba";
 import Renderdescription from "../../../components/renderdescription";
+import apiService from "../../../services/endpint";
+import imgPortada from "../../../assets/parque1.jpg";
 const Parques = () => {
-
-
   const [pasoParam, setPasoParam] = useState("");
+  const [parquesAll, setParquesAll] = useState([]);
 
+  const getAllProyect = async () => {
+    const parquesAll = await apiService.fetchData("GET", "api/parques");
+    console.log(parquesAll);
+    setParquesAll(parquesAll.data);
+  };
+  useEffect(() => {
+    getAllProyect();
+  }, []);
 
   return (
-    <section style={{width:"100%"}}>
+    <section style={{ width: "100%" }}>
       <div className="Head-Ecogestion">
         <section>
           <h1>Parques </h1>
@@ -22,26 +29,27 @@ const Parques = () => {
             salud y la belleza de tus plantas en cada rincón.
           </p>
         </section>
-        <img
-          src="https://scontent.fcbb2-2.fna.fbcdn.net/v/t39.30808-6/426274422_742307761368935_1126866670417351482_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_ohc=DvdYapUf77QQ7kNvgHjIsck&_nc_ht=scontent.fcbb2-2.fna&cb_e2o_trans=q&oh=00_AfAlGAqIJ-MkntmoYWG4OoeTgqzs68ZBCEZpJiolDqZByg&oe=6636164B"
-          alt=""
-        />
+        <img src={imgPortada} alt="" />
       </div>
 
       <section className="todoList">
         <div className="sliderimg">
-          {dataCarroucel.map((item, i) => (
-            <img
-              src={item.url_recurso}
-              alt="img"
-              onClick={() => setPasoParam(item)}
-            />
-          ))}
+          {parquesAll.map(
+            (item, i) =>
+              item.postRelacion &&
+              item.postRelacion.multimedia &&
+              item.postRelacion.multimedia.length > 0 && (
+                <img
+                  key={i}
+                  src={item.postRelacion.multimedia[0]}
+                  alt={item.postRelacion.titulo}
+                  onClick={() => setPasoParam(item.postRelacion)}
+                />
+              )
+          )}
         </div>
-
-        <Renderdescription renderData={pasoParam} titulo="Parques" />
+        <Renderdescription renderData={pasoParam} titulo="parques" />
       </section>
-
     </section>
   );
 };

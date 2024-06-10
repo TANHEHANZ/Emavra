@@ -11,7 +11,7 @@ const ImgPost = () => {
 
   const getImg = async () => {
     const res = await apiService.fetchData("GET", "api/claudynary");
-    setDataImg(res);
+    setDataImg(res.data);
   };
 
   useEffect(() => {
@@ -41,10 +41,12 @@ const ImgPost = () => {
       undefined,
       undefined
     );
-    if(elimainado){
-    getImg();
+    if (elimainado) {
+      getImg();
     }
   };
+
+  const imageExtensions = /\.(jpg|jpeg|png|gif)$/i;
 
   return (
     <>
@@ -61,25 +63,27 @@ const ImgPost = () => {
           </button>
         )}
       </div>
-      {dataImg.map((item, i) => (
-        <div className="img-waper" key={i}>
-          <img
-            src={item.url}
-            alt="imgAlmacenados"
-            onClick={() => handleImageClick(item.url)}
-          />
-          <section className="actions">
-            <input
-              type="checkbox"
-              onChange={(event) => handleCheckboxChange(event, item.url)}
-              checked={img.includes(item.url)}
+      {dataImg
+        .filter(item => imageExtensions.test(item.url)) 
+        .map((item, i) => (
+          <div className="img-waper" key={i}>
+            <img
+              src={item.url}
+              alt="imgAlmacenados"
+              onClick={() => handleImageClick(item.url)}
             />
-            <button onClick={() => handleEliminar(item.public_id)}>
-              <FontAwesomeIcon icon="fa-solid fa-trash" />
-            </button>
-          </section>
-        </div>
-      ))}
+            <section className="actions">
+              <input
+                type="checkbox"
+                onChange={(event) => handleCheckboxChange(event, item.url)}
+                checked={img.includes(item.url)}
+              />
+              <button onClick={() => handleEliminar(item.public_id)}>
+                <FontAwesomeIcon icon="fa-solid fa-trash" />
+              </button>
+            </section>
+          </div>
+        ))}
     </>
   );
 };

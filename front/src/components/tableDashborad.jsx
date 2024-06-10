@@ -5,7 +5,6 @@ import apiService from "../services/endpint";
 const TableDash = ({ tbody, thead, onEdit, route, onSuccess }) => {
   const handleDelete = async (row) => {
     let idTable;
-
     if (row.id_proyectos) {
       idTable = row.id_proyectos;
     } else if (row.id_noticias) {

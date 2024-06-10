@@ -7,6 +7,7 @@ const PostController = {
     const createNoticias = req.query.Noticias;
     const createProyectos = req.query.Proyectos;
     const createMantenimeinto = req.query.Mantenimeinto;
+    const createParques = req.query.Parques;
 
     try {
       const nuevoPost = await prisma.post.create({
@@ -23,6 +24,14 @@ const PostController = {
           },
         });
         message = "noticia creada exitosamente";
+      }
+      if (nuevoPost && createParques === "true") {
+        await prisma.parques.create({
+          data: {
+            postId: nuevoPost.id_post,
+          },
+        });
+        message = "Parque creado exitosamente";
       }
       if (nuevoPost && createProyectos === "true") {
         await prisma.proyectos.create({
@@ -75,19 +84,17 @@ const PostController = {
         },
         take: 4,
         select: {
-          multimedia: true
-        }
+          multimedia: true,
+        },
       });
-  
-      // Mapear los resultados y extraer solo las URLs de las imágenes
-      const imageUrls = getsAllDate.map(post => post.multimedia[0]);
-  
+
+      const imageUrls = getsAllDate.map((post) => post.multimedia[0]);
+
       res.status(200).json(imageUrls);
     } catch (error) {
       res.status(500).json({ error: "Error al obtener los datos destacados." });
     }
   },
-  
 };
 
 module.exports = PostController;
