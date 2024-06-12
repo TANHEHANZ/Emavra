@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Carrosucel from "../../components/carrosucel";
 import apiService from "../../services/endpint";
 import { useNavigate } from "react-router-dom";
+import { dataImg } from "../../data/dataEmpresa";
 const Home = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [destacado, setDestacado] = useState([]);
@@ -15,7 +16,7 @@ const Home = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) =>
-        prevIndex === destacado.length - 1 ? 0 : prevIndex + 1
+        prevIndex === dataImg.length - 1 ? 0 : prevIndex + 1
       );
     }, 2000);
 
@@ -67,8 +68,8 @@ const Home = () => {
           </section>
         </div>
         <div className="slider">
-          {destacado &&
-            destacado.map((item, i) => (
+          {dataImg &&
+            dataImg.slice(0, 4).map((item, i) => (
               <img
                 key={i}
                 src={item}
@@ -99,7 +100,7 @@ const Home = () => {
             leer más <FontAwesomeIcon icon="fa-solid fa-caret-right" />
           </button>
         </div>
-        <div className="sliderimg">
+        <div className="sliderimg" onClick={() => navigate("/Proyectos")}>
           {proyectos &&
             proyectos.map((item, i) => (
               <img src={item.multimedia} alt="img" key={i} />

@@ -2,22 +2,18 @@ import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../../../styles/style-empresa.css";
 import apiService from "../../../services/endpint";
+import { dataImg } from "../../../data/dataEmpresa";
 const Empresa = () => {
-  const [dataDestacado, setDataDestacado] = useState([]);
+  // const [dataDestacado, setDataDestacado] = useState([]);
 
-  const data = async () => {
-    const fetch = await apiService.fetchData(
-      "GET",
-      "api/post/destacado"
-    );
-    setDataDestacado(fetch.data);
-  };
+  // const data = async () => {
+  //   const fetch = await apiService.fetchData("GET", "api/post/destacado");
+  //   setDataDestacado(fetch.data);
+  // };
 
-  useEffect(() => {
-    data();
-  }, []);
-
-
+  // useEffect(() => {
+  //   data();
+  // }, []);
 
   const objetivos = [
     {
@@ -37,6 +33,7 @@ const Empresa = () => {
         "Realizar todos los actos jurídicos y administrativos permitidos por la Legislación nacional.",
     },
   ];
+  console.log(dataImg);
 
   return (
     <div>
@@ -49,8 +46,8 @@ const Empresa = () => {
           </button>
         </div>
         <div className="galery">
-          {dataDestacado.map((img, i) => (
-            <img src={img} alt="img" key={i} />
+          {dataImg.slice(0, 4).map((imga, i) => (
+            <img src={imga} alt={`img-${i}`} key={i} />
           ))}
         </div>
       </div>

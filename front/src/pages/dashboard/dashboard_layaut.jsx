@@ -7,6 +7,7 @@ import logo from "../../assets/logo.jpeg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ImgPost from "../../components/imgPost";
 import "../../styles/styleDashboard/style-content.css";
+import useAuthStore from "../../components/context/userConstext";
 
 const DashboardLayaut = () => {
   const [ver, setVer] = useState("nover");
@@ -18,6 +19,8 @@ const DashboardLayaut = () => {
       setVer("ver");
     }
   };
+  const { logout } = useAuthStore();
+
   return (
     <div className="layautDashboard">
       <nav>
@@ -25,7 +28,7 @@ const DashboardLayaut = () => {
         <img src={logo} alt="" />
       </nav>
       <section className="contenidoDash">
-        <div className="salir">
+        <div className="salir" onClick={() => logout()}>
           <FontAwesomeIcon icon="fa-solid fa-right-from-bracket" />
         </div>
         <div className="imagenes" onClick={() => cambiarClase()}>

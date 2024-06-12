@@ -172,3 +172,51 @@
   cursor: pointer;
   border-radius: 5px 0 0 5px;
 }
+@media screen and (max-width: 420px) {
+  .title-emavra {
+    & > button {
+      align-self: self-start;
+      font-size: 0.8em;
+      padding: 0.5em;
+    }
+  }
+
+
+  .Emavra-head,
+  .quienes-somos,
+  .mision-vision,
+  .objetivos {
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    & p {
+      width: 90%;
+    }
+    & div {
+      width: 90%;
+      margin: 0 auto;
+    }
+  }
+  .galery {
+    right: 0;
+    & img {
+      width: 130px;
+      height: 130px;
+    }
+  }
+  .galery > img:nth-child(1),
+  .galery > img:nth-child(4) {
+    border-radius: 0 35px 0 35px;
+  }
+
+  .galery > img:nth-child(2),
+  .galery > img:nth-child(3) {
+    border-radius: 35px 0 35px 0;
+  }
+
+  .Emavra-head {
+    position: relative;
+    flex-direction: column-reverse;
+  }
+}

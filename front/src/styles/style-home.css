@@ -72,51 +72,107 @@
   filter: contrast(120%);
   transition: all 1s ease-in-out;
   border-radius: 1em;
+  animation: slide-in-right 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+@media screen and (max-width: 420px) {
+  .contenido {
+    flex-direction: column;
+    width: 100vw;
+    min-height: auto;
+    position: relative;
+  }
+  .title {
+    width: 100%;
+    margin: 0;
+  }
+  .slider {
+    position: absolute;
+    width: 200px;
+    height: 100px;
+    right: 0;
+    bottom: 5em;
+    /* width: calc(100% / 4); */
+  }
+  .acciones button {
+    width: 150px;
+    font-size: 0.8em;
+    padding: 0.6em;
+  }
+  .acciones {
+    gap: 1em;
+  }
 }
 
 /* seccion noticias */
 .container-carroucel {
   display: flex;
   flex-direction: column;
-  padding: 2em 0 2em 0;
   justify-content: center;
-  align-items: start;
-  height: 700px;
+  align-items: center;
+  height: 600px;
+  width: 100%;
+  gap: 3em;
   & > h2 {
-    width: auto;
-    padding: 0.2em;
-    position: relative;
-    color: var(--white);
-    font-size: 28px;
-    background-color: var(--secondary-color);
-    border-radius: 0 5px 5px 0;
-    padding: 0.1em 2em;
+    align-self: flex-start;
+    display: flex;
+    gap: 0.2em;
+    margin-left: 5em;
+    font-size: 1.7em;
+    & > strong {
+      background-color: var(--secondary-color);
+      color: #fff;
+      font-size: 0.9em;
+      padding: 0.1em;
+    }
+  }
+  & > div > article {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 
 .carrucel {
   width: 80%;
-  margin: 2em auto;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 3em;
-  width: 1200px;
+  overflow: hidden;
 }
-.carrucel img {
-  width: 640px;
-  height: 360px;
+.imgCarrucel {
+  width: 65%;
+  height: 400px;
   object-fit: cover;
+  z-index: 5;
+  /* animation:slit-in-vertical .45s ease-out both */
+  border-radius: 1em;
+  box-shadow: 0 0 5px;
 }
 .carrucel-contenido {
   width: 30%;
   display: flex;
   flex-direction: column;
-  gap: 2em;
+  gap: 1em;
   align-items: center;
+  background-color: var(--primary-color);
+  height: 100%;
+  padding: 1em;
+  animation: slide-in-right 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+.carrucel-contenido p {
+  width: 100%;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 10em;
+  color: #fff9;
 }
 .carrucel-contenido h3 {
-  color: var(--primary-color);
+  font-size: 0.9em;
+  color: var(--white);
 }
 .carrucel-contenido > button {
   border: none;
@@ -132,16 +188,81 @@
   height: 60px;
   border-radius: 15px;
   font-size: 28px;
-  color: var(--white);
-  background-color: var(--primary-color);
-  border: none;
+
   cursor: pointer;
-  transition: all 1s ease;
-}
-.carrucel > button:hover {
   color: var(--primary-color);
   background-color: var(--white);
   border: solid 1px var(--primary-color);
+  transition: all 1s ease;
+}
+.carrucel > button:hover {
+  color: var(--white);
+  background-color: var(--primary-color);
+  border: none;
+}
+
+@media screen and (max-width: 420px) {
+  .container-carroucel {
+    overflow: hidden;
+    width: 100%;
+    padding: 0;
+    height: auto;
+    & > h2 {
+      margin: 1em 1em 0 1em;
+      font-size: 1.6em;
+      & > strong{
+        font-size: .8em;
+
+      }
+    }
+  }
+  .carrucel {
+    width: 100%;
+  }
+
+  .carrucel > button {
+    position: absolute;
+    right: 1em;
+    z-index: 5;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5em;
+    border-radius: 0.5em;
+  }
+  .carrucel > article {
+    width: 100%;
+    position: relative;
+  }
+  .carrucel > article > img {
+    width: 100%;
+    z-index: 1;
+    box-shadow: 0 0 5px;
+    /* border-radius: 2em 2em 0 0; */
+  }
+  .carrucel > article > section {
+    background-color: #365e3bcd;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    padding: 1.5em;
+    font-size: 0.8em;
+    color: #fff;
+    border-radius: 0 5em 0 0;
+    height: 30%;
+    opacity: 0;
+    z-index: 2;
+
+    & > p {
+      display: none;
+    }
+    & > h3 {
+      color: #fff;
+    }
+  }
+  .carrucel > article > section:hover {
+    opacity: 1;
+    z-index: 10;
+  }
 }
 
 /* ----------------proyectos ------------------------ */
@@ -156,6 +277,15 @@
   align-items: center;
   gap: 3em;
 }
+@media screen and (max-width: 420px) {
+  .proyectos {
+    /* flex-direction: column; */
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
 .datosProyecto {
   width: 20%;
   display: flex;
@@ -188,5 +318,3 @@
   align-self: flex-end;
   cursor: pointer;
 }
-
-

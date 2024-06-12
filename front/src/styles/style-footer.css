@@ -27,16 +27,15 @@
   height: 80%;
   gap: 2em;
   flex-wrap: wrap;
+  & > strong {
+    display: block;
+    width: 100%;
+    color: var(--primary-color);
+  }
 }
 .enlaces p {
   width: 40%;
   font-size: 100;
-}
-
-strong {
-  display: block;
-  width: 100%;
-  color: var(--primary-color);
 }
 
 .contacto {
@@ -47,6 +46,11 @@ strong {
   height: 100%;
   align-items: center;
   justify-content: start;
+  & > strong {
+    display: block;
+    width: 100%;
+    color: var(--primary-color);
+  }
 }
 .contacto input {
   height: 3em;
@@ -85,4 +89,35 @@ strong {
 .redes {
   display: flex;
   gap: 1em;
+}
+
+@media screen and (max-width: 420px) {
+  .footer {
+    height: auto;
+    gap: 0;
+  }
+  .derechos {
+    flex-direction: column;
+  }
+  .footer section > img {
+    width: 100px;
+  }
+  .enlaces {
+    width: 100%;
+    /* gap: 3em; */
+  }
+  .contacto {
+    width: 100%;
+    gap: 1em;
+
+    & > strong {
+      margin-top: 1em;
+    }
+  }
+  .inputContact {
+    width: 100%;
+    & > input {
+      width: 80%;
+    }
+  }
 }

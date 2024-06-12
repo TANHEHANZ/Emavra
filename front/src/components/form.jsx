@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import apiService from "../services/endpint";
 import useContextImg from "./context/context-imgPost";
 import useAuthStore from "./context/userConstext";
+import { toast } from "sonner"; // Importa el toast de sonner
 
 const Formulario = ({
   campos,
@@ -10,7 +11,7 @@ const Formulario = ({
   formDataToEdit,
   onSuccess,
 }) => {
-  const [formData, setFormData] = useState(formDataToEdit.postRelacion || "");
+  const [formData, setFormData] = useState(formDataToEdit.postRelacion || {});
   const { img, setImg } = useContextImg();
   const { token } = useAuthStore();
 
@@ -30,6 +31,17 @@ const Formulario = ({
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (img.length === 0) {
+      toast.error(`No se selecciono ninguna imagen`);
+    }
+    for (const campo of campos) {
+      if (!formData[campo.nombre]) {
+        toast.error(`El campo ${campo.label} está vacío`);
+        return;
+      }
+    }
+ 
+
     const fecha = formData.fecha
       ? new Date(formData.fecha).toISOString()
       : null;

@@ -1,10 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../../styles/style-emavraTransparente.css";
-import { emavraTransparenteData } from "../../data/dataprueba";
 import Tablebody from "../../components/table";
 import imgPortada from "../../assets/parque1.jpg";
+import apiService from "../../services/endpint";
 
 const EmavraTransparente = () => {
+  const [getData, setGetData] = useState([]);
+  const fetchdata = async () => {
+    const fetchEmabra = await apiService.fetchData(
+      "GET",
+      "api/emavraTransparente",
+      undefined,
+      undefined
+    );
+    setGetData(fetchEmabra);
+  };
+  useEffect(() => {
+    fetchdata();
+  }, []);
+
   return (
     <section>
       <div className="headTanparente">
@@ -34,13 +48,14 @@ const EmavraTransparente = () => {
             <tr>
               <th>N#</th>
               <th>Nombre</th>
+              <th>Descripcion</th>
               <th>Tipo de archivo</th>
               <th>Fecha</th>
               <th>Descargar</th>
             </tr>
           </thead>
           <tbody>
-            <Tablebody data={emavraTransparenteData} />
+            <Tablebody data={getData.data} />
           </tbody>
         </table>
       </section>

@@ -40,8 +40,8 @@ const Login = () => {
       if (response.status === 401) {
         toast.error("Revise sus credenciales de acceso");
       } else if (response.status === 200) {
-        navigate("/dashboard");
         setToken(response.data);
+        navigate("/dashboard");
       } else {
         toast.error("An unexpected error occurred");
       }

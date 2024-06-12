@@ -3,6 +3,7 @@ import apiService from "../../services/endpint";
 import TableDash from "../../components/tableDashborad";
 import { theadTransparente } from "../../data/dataprueba";
 import HandleSaveFile from "../../utils/saveFileClaudinary";
+import { toast } from "sonner";
 
 const ListEmavraTransparente = () => {
   const [llenarForm, setLlenarForm] = useState(false);
@@ -11,7 +12,10 @@ const ListEmavraTransparente = () => {
   const [tbody, setTbody] = useState([]);
 
   const fetchedproyectos = async () => {
-    const proyecto = await apiService.fetchData("GET", "api/emavraTransparente");
+    const proyecto = await apiService.fetchData(
+      "GET",
+      "api/emavraTransparente"
+    );
     console.log(proyecto);
     setProyectos(proyecto.data);
   };
@@ -36,6 +40,21 @@ const ListEmavraTransparente = () => {
     setLlenarForm(false);
   };
 
+  const handleDelete = async (row) => {
+    console.log(row);
+    let id = Number(row.id_transparencia);
+    const deleteData = await apiService.fetchData(
+      "DELETE",
+      "api/emavraTransparente" + id,
+      undefined,
+      undefined
+    );
+    if (deleteData.ok) {
+      fetchedproyectos();
+      toast.success("Se elminino exitosamente ");
+    }
+  };
+
   return (
     <div>
       <h2>Emavra Transparente</h2>
@@ -44,7 +63,10 @@ const ListEmavraTransparente = () => {
           {llenarForm ? "Volver" : "Nuevo Registro"}
         </button>
         {llenarForm ? (
-          <HandleSaveFile editDatos={formDataToEdit} onFormSubmit={handleFormSubmit} />
+          <HandleSaveFile
+            editDatos={formDataToEdit}
+            onFormSubmit={handleFormSubmit}
+          />
         ) : (
           ""
         )}

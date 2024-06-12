@@ -23,28 +23,36 @@ const Carrosucel = ({ title, data }) => {
 
   return (
     <article className="container-carroucel">
-      <h2>{title} Destacados</h2>
+      <h2>
+        {title} <strong>Destacados</strong>
+      </h2>
       <div className="carrucel">
         <button onClick={goToPrevSlide}>
           <FontAwesomeIcon icon="fa-solid fa-caret-left" />
         </button>
 
-        <section className="carrucel-contenido">
-          {data[currentIndex]?.titulo && (
-            <>
-              <h3>{data[currentIndex].titulo}</h3>
-              <p>{data[currentIndex].Descripcion}</p>
-            </>
-          )}
-          <button onClick={() => leerArticulo(data[currentIndex].id_post)}>
-            leer más <FontAwesomeIcon icon="fa-solid fa-caret-right" />
-          </button>
-        </section>
-
-        <img
-          src={data[currentIndex]?.multimedia}
-          alt={`imgCarrusel${currentIndex + 1}`}
-        />
+        <article>
+          <section className="carrucel-contenido" key={currentIndex}>
+            {data[currentIndex]?.titulo && (
+              <>
+                <h3 key={`title-${currentIndex}`}>
+                  {data[currentIndex].titulo}
+                </h3>
+                <p key={`desc-${currentIndex}`}>
+                  {data[currentIndex].Descripcion}
+                </p>
+              </>
+            )}
+            <button onClick={() => leerArticulo(data[currentIndex].id_post)}>
+              leer más <FontAwesomeIcon icon="fa-solid fa-caret-right" />
+            </button>
+          </section>
+          <img
+            className="imgCarrucel"
+            src={data[currentIndex]?.multimedia}
+            alt={`imgCarrusel${currentIndex + 1}`}
+          />
+        </article>
 
         <button onClick={goToNextSlide}>
           <FontAwesomeIcon icon="fa-solid fa-caret-right" />

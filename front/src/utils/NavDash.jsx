@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import useAuthStore from "../components/context/userConstext";
 
 const NavDash = ({ links }) => {
   const navigate = useNavigate();
   const navigateTo = (path) => {
     navigate(path);
   };
+  const { token, logout } = useAuthStore();
+  if (!token) {
+    return navigate("/login"), logout();
+  }
   return (
     <ul>
       {links &&

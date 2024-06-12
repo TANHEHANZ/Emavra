@@ -4,6 +4,6 @@ const router = express.Router();
 
 router.get("/", EmavraController.getEmavra);
 router.post("/", EmavraController.cretaeEmavra);
-router.put("/:idMan", EmavraController.updateEmavra);
-router.delete("/:idMan", EmavraController.deleteProyect);
+router.put("/:idEma", EmavraController.updateEmavra);
+router.delete("/:idEma", EmavraController.deleteProyect);
 module.exports = router;

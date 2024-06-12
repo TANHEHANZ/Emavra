@@ -15,6 +15,9 @@
   }
 }
 
+.navPeque {
+  display: none;
+}
 .nav > ul li {
   list-style: none;
   height: auto;
@@ -127,4 +130,92 @@
     outline: none;
     animation: widthMax 2s ease;
   }
+}
+
+@media screen and (max-width: 420px) {
+  .navPage {
+    position: fixed;
+    margin: 0;
+    flex-direction: column;
+    background-color: #fff;
+    width: 85vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 4px #0005;
+    z-index: 100;
+  }
+  .navPeque1 {
+    display: flex;
+    border: none;
+    background-color: var(--primary-color);
+    color: #fff;
+    width: 2.8em;
+    height: 2.8em;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  .desactivado {
+    animation: slide-in-left 1s ease-in-out;
+    display: none;
+  }
+  .activado {
+    display: flex;
+    animation: slide-in-left 1s ease-in-out;
+  }
+  .nav > ul {
+    flex-direction: column;
+    padding: 0;
+    gap: 1em;
+    width: 100%;
+  }
+  .nav > ul > li {
+    width: 100%;
+    height: auto;
+    padding: 1em;
+    position: relative;
+    flex-direction: column;
+    & > div {
+      padding: 0.5em;
+    }
+  }
+
+  .child-nav {
+    position: relative;
+    top: 0;
+    width: 100%;
+    border-radius: 0.5em;
+    & > li {
+      width: 100%;
+      height: auto;
+    }
+    .active {
+      color: var(--primary-color);
+      font-weight: 600;
+      color: var(--white);
+      &::after {
+        background-color: var(--white);
+      }
+      &::before {
+        background-color: var(--white);
+      }
+    }
+  }
+
+  .buttonNav {
+    /* position: fixed; */
+    z-index: 2;
+    display: flex !important;
+    right: 2em;
+    top: 1em;
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.buttonNav {
+  display: none;
 }
