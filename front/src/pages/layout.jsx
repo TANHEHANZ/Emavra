@@ -17,9 +17,9 @@ const Layout = () => {
   };
 
   return (
-    <>
+    <div>
       <button className={"buttonNav"} onClick={toggleNav}>
-        <FontAwesomeIcon icon="fa-duotone fa-bars" />
+        <FontAwesomeIcon icon="fa-bars" />
       </button>
       <nav className={`navPage ${navActive ? "activado" : "desactivado"}`}>
         <img src={logo} alt="logo emavra" />
@@ -32,7 +32,7 @@ const Layout = () => {
         <Outlet />
       </section>
       <FooterHome />
-    </>
+    </div>
   );
 };
 

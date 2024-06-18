@@ -47,6 +47,9 @@
 }
 
 @media screen and (max-width: 420px) {
+  .head-alcalde {
+    margin-top: 3em;
+  }
 .head-alcalde > img{
   width: 10em;
   height: 10em;
@@ -57,4 +60,6 @@
 .cuerpo {
   width: 90%;
 }
+
+
 }

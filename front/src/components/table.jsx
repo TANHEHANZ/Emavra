@@ -5,7 +5,13 @@ const Tablebody = ({ data }) => {
   const handlePreview = (url) => {
     window.open(url, "_blank");
   };
-  console.log(data);
+  const formatDate = (dateString) => {
+    return new Date(dateString).toLocaleDateString("es-ES", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+    });
+  };
   return (
     <>
       {data &&
@@ -15,12 +21,10 @@ const Tablebody = ({ data }) => {
             <td>{item.Nombre}</td>
             <td>{item.Descripcion}</td>
             <td>{item.tipo}</td>
-            <td>{item.fecha}</td>
+            <td>{formatDate(item.fecha)}</td>
             <td>
               <button onClick={() => handlePreview(item.multimedia)}>
-                {/* <FontAwesomeIcon icon="fa-solid fa-file-pdf" /> */}
                 <FontAwesomeIcon icon="fa-solid fa-cloud-arrow-down" />
-                {/* {item.multimedia} descargara */}
               </button>
             </td>
           </tr>

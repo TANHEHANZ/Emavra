@@ -19,6 +19,8 @@ const EmavraTransparente = () => {
     fetchdata();
   }, []);
 
+ 
+
   return (
     <section>
       <div className="headTanparente">

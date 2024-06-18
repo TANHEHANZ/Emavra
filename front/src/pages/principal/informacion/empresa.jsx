@@ -3,6 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../../../styles/style-empresa.css";
 import apiService from "../../../services/endpint";
 import { dataImg } from "../../../data/dataEmpresa";
+import Quien from "../../../assets/quien.jpg";
+
 const Empresa = () => {
   // const [dataDestacado, setDataDestacado] = useState([]);
 
@@ -33,8 +35,11 @@ const Empresa = () => {
         "Realizar todos los actos jurídicos y administrativos permitidos por la Legislación nacional.",
     },
   ];
+  const [expand, setExpand] = useState("");
   console.log(dataImg);
-
+  const expandir = () => {
+    setExpand("expandiendo");
+  };
   return (
     <div>
       <div className="Emavra-head">
@@ -53,10 +58,7 @@ const Empresa = () => {
       </div>
 
       <section className="quienes-somos">
-        <img
-          src="https://scontent.fcbb2-1.fna.fbcdn.net/v/t39.30808-6/435129735_745886954344349_3179303480436942120_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=5f2048&_nc_ohc=2Dnyed2cE3EAb4aw716&_nc_ht=scontent.fcbb2-1.fna&cb_e2o_trans=q&oh=00_AfCAU18ryr6kEfiuMeAnyorNsDhSYT-vgSji3fQItNZiyQ&oe=663603B9"
-          alt="img-quien-somos"
-        />
+        <img src={Quien} alt="img-quien-somos" />
         <div>
           <h3>¿Quienes somos? </h3>
           <p>
@@ -111,10 +113,11 @@ const Empresa = () => {
         </div>
         <section className="organigrama">
           <img
-            src="https://scontent.fcbb2-1.fna.fbcdn.net/v/t39.30808-6/435129735_745886954344349_3179303480436942120_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=5f2048&_nc_ohc=2Dnyed2cE3EAb4aw716&_nc_ht=scontent.fcbb2-1.fna&cb_e2o_trans=q&oh=00_AfCAU18ryr6kEfiuMeAnyorNsDhSYT-vgSji3fQItNZiyQ&oe=663603B9"
+            src="https://images.ctfassets.net/w6r2i5d8q73s/3pnv79QcytBFb2XJu5cIhV/6491e8f32cd1ae7a9132e323ac150f94/cronograma_de_formacion.png"
             alt="img-quien-somos"
+            className={expand}
           />
-          <button>Expandir Organigrama</button>
+          <button onClick={() => expandir()}>Descargar Organigrama</button>
         </section>
       </section>
     </div>

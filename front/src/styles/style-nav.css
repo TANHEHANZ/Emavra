@@ -131,8 +131,14 @@
     animation: widthMax 2s ease;
   }
 }
+.buttonNav {
+  display: none;
+}
 
 @media screen and (max-width: 420px) {
+  .search{
+    display: none;
+  }
   .navPage {
     position: fixed;
     margin: 0;
@@ -175,9 +181,11 @@
   .nav > ul > li {
     width: 100%;
     height: auto;
-    padding: 1em;
+    padding: 0;
     position: relative;
     flex-direction: column;
+    font-size: 0.9em;
+    padding-left: 2em;
     & > div {
       padding: 0.5em;
     }
@@ -191,6 +199,10 @@
     & > li {
       width: 100%;
       height: auto;
+    }
+    & > div{
+      padding: 0;
+
     }
     .active {
       color: var(--primary-color);
@@ -206,16 +218,18 @@
   }
 
   .buttonNav {
-    /* position: fixed; */
+    position: fixed;
     z-index: 2;
-    display: flex !important;
+    display: flex;
     right: 2em;
     top: 1em;
     width: 20px;
+    justify-content: center;
+    align-items: center;
     height: 20px;
+    border-radius: 0.2em;
+    border: none;
+    background-color: transparent;
+    font-size: 1em;
   }
-}
-
-.buttonNav {
-  display: none;
 }

@@ -1,4 +1,5 @@
 import React from 'react'
+import imgPortada from "../../../assets/parque1.jpg";
 
 const Viveros = () => {
   return (
@@ -13,10 +14,8 @@ const Viveros = () => {
         la belleza de tus plantas en cada rincón.
       </p>
     </section>
-    <img
-      src="https://scontent.fcbb2-2.fna.fbcdn.net/v/t39.30808-6/426274422_742307761368935_1126866670417351482_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_ohc=Ogvq_xw1nUYAb7RTdX9&_nc_ht=scontent.fcbb2-2.fna&cb_e2o_trans=q&oh=00_AfArnWeQyxjXteoW4oy98-I9QXs0kJdB-zzNmDP_BFxpNA&oe=662330CB"
-      alt=""
-    />
+    <img src={imgPortada} alt="" />
+
   </div>
   )
 }
