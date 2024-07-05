@@ -20,6 +20,10 @@ cd Emavra
 cd front
 npm install
 ```
+# Levantar frontend
+```bash
+npm run dev
+```
 
 Volver a la raíz del proyecto
 cd ..
