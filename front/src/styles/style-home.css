@@ -74,7 +74,39 @@
   border-radius: 1em;
   animation: slide-in-right 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
+.circulos {
+  width: 25em;
+  height: 25em;
+  border-radius: 50%;
+  z-index: -1;
+  position: absolute;
+  border: 2em solid #009976;
+  right: -30vh;
+  top: 60vh;
+  &::after {
+    content: "";
+    position: absolute;
+    width: 18em;
+    height: 18em;
+    top: 14vh;
+    right: -10vh;
+    border-radius: 50%;
+    border: 2em solid #492678;
+  }
+}
+
 @media screen and (max-width: 420px) {
+  .circulos {
+    top: -3em;
+    width: 10em;
+    right: -4em;
+    height: 10em;
+    &::after {
+      width: 7em;
+      height: 7em;
+      top: 1em;
+    }
+  }
   .contenido {
     flex-direction: column;
     width: 100vw;
@@ -210,9 +242,8 @@
     & > h2 {
       margin: 1em 1em 0 1em;
       font-size: 1.6em;
-      & > strong{
-        font-size: .8em;
-
+      & > strong {
+        font-size: 0.8em;
       }
     }
   }

@@ -104,3 +104,19 @@
   background-color: var(--secondary-color);
   color: var(--white);
 }
+
+
+@media screen and (max-width: 420px) {
+.PostDetalle {
+  width: 100%;
+}
+.contenido{
+  width: 100%;
+}
+.imgPrincipal{
+  width: 100%;
+}
+.datos{
+  width: 100%;
+}
+}

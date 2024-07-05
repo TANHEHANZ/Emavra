@@ -73,17 +73,38 @@
   height: 80vh;
   overflow-y: scroll;
 }
+
 @media screen and (max-width: 420px) {
+  .todoList{
+    flex-direction: column;
+  }
+  .Head-Ecogestion {
+    flex-direction: column;
+    position: relative;
+  }
+  .Head-Ecogestion > img {
+    width: 100%;
+    
+  }
+  .Head-Ecogestion > section {
+    width: 90%;
+    position: absolute;
+    top: 15em;
+    margin: 0;
+  }
+  .Head-Ecogestion > section > p {
+    width: 100%;
+  }
   .proyectos {
     margin-top: 2em;
     flex-direction: column;
   }
-  .datosProyecto{
+  .datosProyecto {
     width: 100%;
     padding: 1em;
     gap: 1em;
     & > button {
-      font-size: .8em;
+      font-size: 0.8em;
     }
   }
   .sliderimg {

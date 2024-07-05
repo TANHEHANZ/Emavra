@@ -83,7 +83,7 @@ const Home = () => {
             ))}
         </div>
       </article>
-
+      <section className="circulos"></section>
       <Carrosucel title={"Noticias"} data={noticias} />
       <section className="proyectos">
         <div className="datosProyecto">

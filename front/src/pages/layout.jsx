@@ -18,7 +18,7 @@ const Layout = () => {
 
   return (
     <div>
-      <button className={"buttonNav"} onClick={toggleNav}>
+      <button className={"buttonNav"} onClick={toggleNav} style={{overflow:"hidden"}} >
         <FontAwesomeIcon icon="fa-bars" />
       </button>
       <nav className={`navPage ${navActive ? "activado" : "desactivado"}`}>
@@ -28,7 +28,7 @@ const Layout = () => {
         </section>
         <Search />
       </nav>
-      <section className="contenido">
+      <section >
         <Outlet />
       </section>
       <FooterHome />
