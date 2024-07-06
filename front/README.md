@@ -48,13 +48,6 @@ En el directorio del proyecto, puedes ejecutar los siguientes scripts:
 
 Inicia el servidor de desarrollo. La aplicación estará disponible en `http://localhost:3000`.
 
-### `npm run build`
-
-Construye la aplicación para producción en la carpeta `dist`.
-
-### `npm run preview`
-
-Previsualiza la versión de producción después de construirla.
 
 ## Uso
 
@@ -62,25 +55,3 @@ Previsualiza la versión de producción después de construirla.
     ```bash
     npm run dev
     ```
-
-2. Abre [http://localhost:3000](http://localhost:3000) en tu navegador para ver la aplicación en funcionamiento.
-
-3. Para construir la aplicación para producción:
-    ```bash
-    npm run build
-    ```
-
-4. Para previsualizar la versión de producción:
-    ```bash
-    npm run preview
-    ```
-
-## Contribución
-
-¡Las contribuciones son bienvenidas! Para contribuir, sigue estos pasos:
-
-1. Haz un fork de este repositorio.
-2. Crea una rama para tu feature (`git checkout -b feature/nueva-feature`).
-3. Realiza tus cambios y haz commits (`git commit -m 'Agrega nueva feature'`).
-4. Envía tus cambios (`git push origin feature/nueva-feature`).
-5. Abre un Pull Request.
