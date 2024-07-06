@@ -46,7 +46,7 @@ En el directorio del proyecto, puedes ejecutar los siguientes scripts:
 
 ### `npm run dev`
 
-Inicia el servidor de desarrollo. La aplicación estará disponible en `http://localhost:3000`.
+Inicia el servidor de desarrollo. La aplicación estará disponible en `http://localhost:5173`.
 
 
 ## Uso
