@@ -1,6 +1,7 @@
 name: react-express-emavra
 services:
   frontend:
+    container_name: frontend-prod
     build:
       context: ./front      
     restart: always
@@ -9,6 +10,7 @@ services:
     ports:
       - 81:90
   backend:
+    container_name: backend-prod
     build:
       context: ./back
     ports:
