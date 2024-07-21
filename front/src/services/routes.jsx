@@ -25,7 +25,7 @@ export const dataRoutes = [
       },
       {
         name: "Empresa",
-        path: "empresa",  
+        path: "empresa",
         component: Empresa,
       },
       {
@@ -55,17 +55,35 @@ export const dataRoutes = [
         path: "mantenimiento",
         component: Mantenimiento,
       },
+    ],
+  },
+  {
+    name: "Transparencia",
+    path: null,
+
+    children: [
       {
-        name: "viveros",
-        path: "viveros",
-        component: Viveros,
+        name: "Rendicion de cuentas ",
+        path: "Emavra_transparente",
+        component: EmavraTransparente,
+      },
+
+      {
+        name: "Lucha contra la corrupción",
+        path: "proyectos",
+        component: Proyectos,
       },
     ],
   },
   {
-    name: "Emavra transparente",
-    path: "Emavra_transparente",
-    component: EmavraTransparente,
+    name: "Normativa",
+    children: [
+      {
+        name: "Formulario de reglamento ",
+        path: "normativa",
+        component: Noticias,
+      },
+    ],
   },
   { name: "Noticias", path: "noticias", component: Noticias },
 ];

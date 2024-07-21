@@ -3,7 +3,7 @@ import { faFacebook, faTiktok, faWhatsapp } from "@fortawesome/free-brands-svg-i
 
 import React from "react";
 import "../styles/style-footer.css";
-import logo from "../assets/logo.jpeg";
+import logo from "../assets/logo.png";
 import { faPhoneVolume } from "@fortawesome/free-solid-svg-icons";
 const FooterHome = () => {
   return (

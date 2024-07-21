@@ -1,8 +1,22 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import imgPortada from "../../../assets/parque1.jpg";
+import Renderdescription from "../../../components/renderdescription";
+import apiService from "../../../services/endpint";
 
 const Mantenimiento = () => {
+  const [parquesAll, setParquesAll] = useState([]);
+  const [pasoParam, setPasoParam] = useState("");
+
+  const getAllProyect = async () => {
+    const parquesAllpromis = await apiService.fetchData("GET", "api/mantenimiento");
+    setParquesAll(parquesAllpromis.data);
+  };
+  console.log(parquesAll);
+
+  useEffect(() => {
+    getAllProyect();
+  }, []);
   return (
     <section style={{ width: "100%" }}>
       <div className="Head-Ecogestion">
@@ -18,6 +32,25 @@ const Mantenimiento = () => {
         </section>
         <img src={imgPortada} alt="" />
       </div>
+    
+      <section className="todoList">
+        <div className="sliderimg">
+          {parquesAll.map(
+            (item, i) =>
+              item.postRelacion &&
+              item.postRelacion.multimedia &&
+              item.postRelacion.multimedia.length > 0 && (
+                <img
+                  key={i}
+                  src={item.postRelacion.multimedia[0]}
+                  alt={item.postRelacion.titulo}
+                  onClick={() => setPasoParam(item.postRelacion)}
+                />
+              )
+          )}
+        </div>
+        <Renderdescription renderData={pasoParam} titulo="Mantenimiento" />
+      </section>
     </section>
   );
 };

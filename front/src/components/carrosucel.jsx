@@ -22,7 +22,7 @@ const Carrosucel = ({ title, data }) => {
   };
 
   return (
-    <article className="container-carroucel">
+    <article className="containerCarroucel">
       <h2>
         {title} <strong>Destacados</strong>
       </h2>

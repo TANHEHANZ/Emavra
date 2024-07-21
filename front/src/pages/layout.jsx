@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import Nav from "../utils/navHome";
 import { dataRoutes } from "../services/routes";
 import { Outlet } from "react-router-dom";
-import logo from "../assets/logo.jpeg";
+import logo from "../assets/logo.png";
 import Search from "../utils/search";
 import "../styles/style-nav.css";
 import FooterHome from "../utils/footerHome";
 import "../styles/styleDashboard/style-content.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+import NuttonFlotante from "../utils/buttonFlotante";
 
 const Layout = () => {
   const [navActive, setNavActive] = useState(true);
@@ -26,11 +28,15 @@ const Layout = () => {
         <section className="nav">
           <Nav links={dataRoutes} />
         </section>
-        <Search />
+        {/* <Search /> */}
       </nav>
       <section className="contenido">
-        <Outlet />
+        <div style={{ marginTop: "12vh" ,backgroundColor:"var(--white)", width:"100%"}}>
+          <Outlet />
+        </div>
       </section>
+      <NuttonFlotante />
+
       <FooterHome />
     </div>
   );

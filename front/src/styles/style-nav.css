@@ -3,11 +3,15 @@
 
 .navPage {
   display: flex;
-  width: 95vw;
+  width: 100% ;
   display: flex;
-  margin: 0 auto;
   height: 12vh;
   align-items: center;
+  position: fixed;
+  background-color: #cbd9e7e3;
+  z-index: 1000;
+  padding: 0 5vw 0  5vw;
+  box-shadow: 0 0px 5px #0008;
   & img {
     width: 170px;
     height: 80px;

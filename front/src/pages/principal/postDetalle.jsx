@@ -10,11 +10,11 @@ const PostDetalle = ({ data }) => {
   const [dataPost, setDataPost] = useState(data || null);
   const [verImg, setVerImg] = useState("");
   const [imgSeleccionado, setImgSeleccionado] = useState(0);
-console.log(data)
   const fetchPostId = async () => {
     try {
       if (!data) {
         const url = `api/${type}/${id}`;
+        console.log(url)
         const postId = await apiService.fetchData("GET", url);
         setDataPost(postId.data);
         if (postId.data && postId.data.length > 0) {

@@ -16,7 +16,6 @@ const Proyectos = () => {
     setProyectData(destacados.data);
     setProyectDataAll(proyectAll.data);
   };
-  console.log(proyectDataAll);
   useEffect(() => {
     getAllProyect();
   }, []);

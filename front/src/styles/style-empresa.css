@@ -1,91 +1,81 @@
 @import "./variables.css";
 @import "./animaciones.css";
-.Emavra-head {
-  width: 100%;
+.Emavra {
+  width: 80dvw;
+  margin: 0 auto;
   display: flex;
-  justify-content: space-between;
-}
-.title-emavra {
-  width: 300px;
-  display: flex;
-  justify-content: center;
-  align-items: start;
   flex-direction: column;
+  gap: 2rem;
 }
-.title-emavra > button {
-  align-self: flex-end;
-  background-color: var(--secondary-color);
-  color: var(--white);
-  border: none;
-  padding: 1em;
-  display: flex;
-  gap: 1em;
-  cursor: pointer;
-}
-.title-emavra > h1 {
-  color: var(--white);
-  margin: 1em 0;
+.palabras {
+  height: 22rem;
   position: relative;
-  width: 300px;
-  height: 40px;
-}
-.title-emavra > h1::before {
-  position: absolute;
-  content: "";
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  background-color: var(--primary-color);
-  border-radius: 0 5px 5px 0;
-  transform: translateY(-5px);
-}
-.galery > img {
-  width: 250px;
-  height: 250px;
-}
-.galery {
+  width: 60%;
+  font-size: smaller;
+  padding: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 0.5em;
-  width: 50%;
-}
-.galery > img:nth-child(1),
-.galery > img:nth-child(4) {
-  border-radius: 0 80px 0 80px;
+  margin: 0 auto;
+  & > img {
+    width: 10rem;
+    height: 10rem;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    right: -5rem;
+  }
+  & > section {
+    width: 100%;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    box-shadow: 0 0 5px #0003;
+  }
 }
 
-.galery > img:nth-child(2),
-.galery > img:nth-child(3) {
-  border-radius: 80px 0 80px 0;
+.autor {
+  font-weight: 600;
+  color: #0009;
 }
-
+.cargo {
+  font-weight: 600;
+  color: var(--secondary-color);
+}
 .quienes-somos {
   display: flex;
-  width: 80%;
-  margin: 2em auto;
   justify-content: space-between;
   align-items: center;
+  flex-direction: row-reverse;
 }
-.quienes-somos > div {
+.quienes-somos > article {
   width: 60%;
   display: flex;
   flex-direction: column;
   gap: 2em;
 }
 .quienes-somos h3 {
-  width: 300px;
-  padding: 0.5em;
-  color: var(--white);
-  background-color: var(--secondary-color);
-  font-size: 18px;
+  padding: 0.5rem;
+  color: var(--secondary-color);
+  font-size: larger;
   font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
 }
-.quienes-somos > div > p {
-  width: 90%;
+.quienes-somos > article {
+  width: 60%;
   text-align: justify;
-  font-size: 14px;
+  font-size: smaller;
+  background-color: var(--primary-color-complemet);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  color: white;
+  & strong {
+    color: var(--secondary-color);
+  }
 }
 
 .quienes-somos > img {
@@ -97,145 +87,116 @@
 /* ====== mision vision ======== */
 
 .mision-vision {
-  width: 80%;
   margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.mision-vision > div > h4 {
-  font-size: 22px;
-  text-align: center;
+  color: white;
+  gap: 2rem;
 }
 .mision-vision > div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 2em;
-  width: 40%;
-  margin: 2em;
-}
-
-.objetivos {
-  width: 100%;
-  margin: 4em 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.objetivos > div {
-  width: 60%;
-}
-
-.objetivos > div > h4 {
-  font-size: 18px;
-  font-weight: 600;
-  margin: 1em;
-}
-
-.objetivos > div > p {
-  position: relative;
-  width: 80%;
-}
-
-.objetivos > div > p::before {
-  content: "";
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  background-color: var(--primary-color);
-  transform: translateX(-20px) translateY(5px);
-  border-radius: 50%;
-}
-
-/* ------------organigrama ----------------- */
-
-.organigrama {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5em;
-}
-.organigrama > img {
-  width: 200px;
-  height: 200px;
-  border-radius: 15px;
-  box-shadow: 0 5px 10px #0005;
-}
-
-.organigrama > button {
-  width: 200px;
-  color: var(--white);
   background-color: var(--secondary-color);
-  border: none;
-  padding: 0.5em 1em;
-  cursor: pointer;
-  border-radius: 5px 0 0 5px;
+  font-size: 14px;
+  text-align: center;
+  padding: 2rem;
+  min-height: 14rem;
+  height: auto;
+
+  border-radius: 0.5rem;
+  width: calc(80% / 2);
 }
-@media screen and (max-width: 420px) {
-  .title-emavra {
-    & > button {
-      align-self: self-start;
-      font-size: 0.8em;
-      padding: 0.5em;
-    }
+.mision-vision > div:nth-child(2) {
+  background-color: var(--primary-color);
+}
+.Organigrama {
+  display: flex;
+  gap: 2rem;
+  position: relative;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  & > img {
+    position: absolute;
+    width: 8rem;
+    height: 8rem;
+    object-fit: cover;
+    top: 0.5rem;
+    right: 0.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    border: solid 1px var(--primary-color);
   }
-
-  .Emavra-head,
-  .quienes-somos,
-  .mision-vision,
-  .objetivos {
-    flex-direction: column;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    & p {
-      width: 90%;
-    }
-    & div {
-      width: 90%;
-      margin: 0 auto;
-    }
-  }
-  .galery {
-    right: 2em;
-
-    margin-top: 4em !important;
-    & img {
-      width: 130px;
-      height: 130px;
-    }
-  }
-  .galery > img:nth-child(1),
-  .galery > img:nth-child(4) {
-    border-radius: 0 35px 0 35px;
-  }
-
-  .galery > img:nth-child(2),
-  .galery > img:nth-child(3) {
-    border-radius: 35px 0 35px 0;
-  }
-
-  .Emavra-head {
-    position: relative;
-    flex-direction: column-reverse;
-  }
-  .objetivos {
-    padding: 2em;
+  & > article {
     & > p {
+      color: var(--secondary-color);
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: smaller;
+    }
+    & > div {
+      padding-left: 1rem;
+      border-left: solid 2px var(--primary-color);
+      & > p {
+        font-size: 14px;
+        & > strong {
+          text-transform: uppercase;
+          font-size: smaller;
+          color: var(--primary-color);
+        }
+        & div {
+          padding-left: 1rem;
+          border-left: solid 2px var(--primary-color);
+          & > p {
+            & > strong {
+              text-transform: uppercase;
+              font-size: smaller;
+              color: rgb(31, 31, 175);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.h3Organigrama {
+  text-transform: uppercase;
+  font-size: smaller;
+  border-left: solid 4px var(--secondary-color);
+  padding-left: 0.5rem;
+}
+
+@media screen and (max-width: 520px) {
+  .palabras {
+    & img {
+      right: 0;
+      width: 5rem;
+      height: 5rem;
+    }
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .palabras {
+    width: 100%;
+  }
+  .mision-vision {
+    flex-direction: column;
+    & div {
       width: 100%;
     }
   }
-
-  .organigrama {
-    width: 100%;
-    margin-top: 1em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2em;
+  .quienes-somos {
+    flex-direction: column;
+    position: relative;
+    & article {
+      width: 100%;
+    }
     & > img {
-      width: 90%;
+      position: absolute;
+      top: 0;
+      width: 5rem;
+      height: 5rem;
+      right: 0;
     }
   }
 }

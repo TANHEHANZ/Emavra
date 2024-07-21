@@ -1,124 +1,95 @@
 import React, { useEffect, useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../../../styles/style-empresa.css";
-import apiService from "../../../services/endpint";
-import { dataImg } from "../../../data/dataEmpresa";
-import Quien from "../../../assets/quien.jpg";
+import Quien from "../../../assets/quien.png";
+import Autoridad from "../../../assets/autoridad.png";
+import Organigrama from "./empresaComponet/Organigrama";
 
 const Empresa = () => {
-  // const [dataDestacado, setDataDestacado] = useState([]);
-
-  // const data = async () => {
-  //   const fetch = await apiService.fetchData("GET", "api/post/destacado");
-  //   setDataDestacado(fetch.data);
-  // };
-
-  // useEffect(() => {
-  //   data();
-  // }, []);
-
-  const objetivos = [
-    {
-      objetivo:
-        "Organizar, reglamentar, administrar y prestar el servicio de limpieza de vías y espacios de uso público, recolección transporte, tratamiento, reciclaje, industrialización y eliminación de basuras y residuos.",
-    },
-    {
-      objetivo:
-        "Determinar y recaudar las tasas y tarifas correspondientes a los servicios a su cargo, de acuerdo a políticas y normas que dicte el Concejo Municipal.",
-    },
-    {
-      objetivo:
-        "Gestionar financiamientos y otorgar las garantías que sean requeridas.",
-    },
-    {
-      objetivo:
-        "Realizar todos los actos jurídicos y administrativos permitidos por la Legislación nacional.",
-    },
-  ];
-  const [expand, setExpand] = useState("");
-  console.log(dataImg);
-  const expandir = () => {
-    setExpand("expandiendo");
-  };
   return (
-    <div>
-      <div className="Emavra-head">
-        <div className="title-emavra">
-          <h1>Emavra</h1>
-          <button>
-            Proyectos de emavra
-            <FontAwesomeIcon icon="fa-solid fa-arrow-right-long" />
-          </button>
-        </div>
-        <div className="galery">
-          {dataImg.slice(0, 4).map((imga, i) => (
-            <img src={imga} alt={`img-${i}`} key={i} />
-          ))}
-        </div>
-      </div>
+    <div style={{ background: "var(--white)", width: "99.7dvw" }}>
+      <section className="Emavra">
+        <div className="palabras">
+          <img src={Autoridad} alt="" />
+          <section>
+            <p className="cargo">GERENTE GENERAL EMAVRA</p>
 
-      <section className="quienes-somos">
-        <img src={Quien} alt="img-quien-somos" />
-        <div>
-          <h3>¿Quienes somos? </h3>
-          <p>
-            La Empresa Municipal de Servicios de Aseo (EMSA) es la institución
-            responsable de brindar el Servicio de Aseo Urbano a la población de
-            Cochabamba. El Gobierno de la Alcaldía Municipal de Cochabamba
-            realiza este servicio a través de esta entidad descentralizada.
-            EMSA, fue creada mediante la Ordenanza Municipal Nº 1908/97 de 24 de
-            Enero de 1997, como Empresa Municipal descentralizada Pública, con
-            personería jurídica de derecho público, patrimonio propio y
-            autonomía de gestión técnica, administrativa, económica, financiera
-            y de duración indefinida. Según Ordenanza Municipal 2838/2002, EMSA
-            está facultada para establecer el régimen normativo para regular la
-            limpieza de espacios públicos y privados, para la recolección,
-            transporte, tratamiento, y disposición final de los residuos sólidos
-            en la jurisdicción municipal de Cochabamba. Esto con el fin de
-            prevenir y controlar los riesgos a la salud pública y el medio
-            ambiente.
-          </p>
+            <p>
+              Desde la Gestión 2021 bajo la dirección y liderazgo del alcalde
+              Cap. Manfred Reyes Villa, asumimos la administración de la Empresa
+              Municipal de Áreas Verdes y Recreación Alternativa “EMAVRA” con
+              compromiso, experiencia, transparencia y responsabilidad para
+              hacer de Cochabamba una ciudad jardín, mejorando constantemente la
+              prestación de servicios de áreas verdes y de recreación,
+              contribuyendo al mejoramiento del medio ambiente y la calidad de
+              vida de los cochabambinos.
+            </p>
+            <p className="autor">Ing. Milton T. Copa Morató</p>
+          </section>
         </div>
-      </section>
 
-      <section className="mision-vision">
-        <div>
-          <h4>Mision</h4>
-          <p>
-            Nuestra misión es “Proteger el medio ambiente y la salud de la
-            población mejorando la limpieza y el paisaje urbano de la ciudad;
-            promoviendo buenos hábitos en la ciudadanía y fomentando acciones
-            para reducir, reciclar y reutilizar los residuos sólidos en
-            general”.
-          </p>
-        </div>
-        <div>
-          <h4>Vision</h4>
-          <p>
-            “Ser una empresa de prestación de servicio de aseo y recolección
-            diferenciada y eficiente, en la gestión integral de residuos
-            sólidos, reduciendo significativamente la contaminación ambiental y
-            promoviendo el equilibrio ecológico para futuras generaciones”.
-          </p>
-        </div>
-      </section>
+        <section className="quienes-somos">
+          <img src={Quien} alt="img-quien-somos" />
+          <article>
+            <h3>¿Quienes somos? </h3>
 
-      <section className="objetivos">
-        <div>
-          <h4>Objetivos</h4>
-
-          {objetivos.map((item, i) => (
-            <p key={i}>{item.objetivo}</p>
-          ))}
-        </div>
-        <section className="organigrama">
-          <img
-            src="https://images.ctfassets.net/w6r2i5d8q73s/3pnv79QcytBFb2XJu5cIhV/6491e8f32cd1ae7a9132e323ac150f94/cronograma_de_formacion.png"
-            alt="img-quien-somos"
-            className={expand}
-          />
-          <button onClick={() => expandir()}>Descargar Organigrama</button>
+            <p>
+              La Empresa Municipal de Áreas Verdes y Recreación Alternativa
+              “EMAVRA”, es una Empresa Municipal Descentralizada del Gobierno
+              Autónomo Municipal de Cochabamba, creada mediante Ordenanza
+              Municipal N°2541/2000 de 11 de agosto de 2000, con propia
+              personalidad jurídica, cuenta con autonomía en Gestión
+              Administrativa, Técnica y Económica; de manera indefinida. La
+              empresa está situada en la Ciudad de Cochabamba.
+            </p>
+            <p>
+              El 28 de junio de 2013 mediante Resolución Ministerial N°515 el
+              Viceministerio de presupuestos y Contabilidad Fiscal del
+              Ministerio de Economía y finanzas Publicas, autoriza el código
+              Institucional N°2303 desde entonces EMAVRA se convierte en una
+              Empresa Municipal legalmente establecida que funcionara{" "}
+              <strong>
+                como Empresa Municipal Descentralizada prestadora de Servicios
+                relacionados al mantenimiento de áreas verdes, plazas,
+                plazuelas, parques recreacionales y áreas de esparcimiento.
+              </strong>
+            </p>
+            <p>
+              Hasta la fecha EMAVRA como institución llega a cubrir el 70% de
+              las áreas verdes del municipio de Cochabamba mejorando la calidad
+              de vida de los habitantes tanto en la zona norte y sud de la
+              ciudad
+            </p>
+            <p>
+              Administramos de manera independiente como institución 10 parques
+              municipales que se encuentran dispersados en diferentes puntos de
+              la ciudad. Cada parque cuenta con una temática totalmente
+              diferente al otro.
+            </p>
+          </article>
         </section>
+
+        <section className="mision-vision">
+          <div>
+            <h4>MISIÓN</h4>
+            <p>
+              Crear un equilibrio con el ser humano y el medio ambiente mediante
+              la prestación de servicios para las áreas verdes y sitios de
+              recreación, buscando satisfacer las demandas de toda la población
+              referentes al mantenimiento de plazas, plazuelas jardineras
+              centrales.
+            </p>
+          </div>
+          <div>
+            <h4>VISIÓN</h4>
+            <p>
+              Constituirse en una instancia que logre contribuir a la
+              conservación y protección del medio ambiente, situando a
+              Cochabamba, como municipio jardín en el corazón de la madre
+              tierra, respetuoso del medio ambiente.
+            </p>
+          </div>
+        </section>
+        <Organigrama />
       </section>
     </div>
   );

@@ -4,9 +4,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Carrosucel from "../../components/carrosucel";
 import apiService from "../../services/endpint";
 import { useNavigate } from "react-router-dom";
-import { dataImg } from "../../data/dataEmpresa";
+
+import imgArbol from "../../assets/mundo.png";
+import ImageSlider from "../../components/ImageSlider";
+
 const Home = () => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [destacado, setDestacado] = useState([]);
   const [noticias, setNoticias] = useState([]);
   const [proyectos, setProyectos] = useState([]);
@@ -14,41 +16,32 @@ const Home = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) =>
-        prevIndex === dataImg.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 2000);
+    const data = async () => {
+      try {
+        const [destacado, noticias, proyectos] = await Promise.all([
+          apiService.fetchData("GET", "api/post/destacado"),
+          apiService.fetchData("GET", "api/destacar/noticias"),
+          apiService.fetchData("GET", "api/destacar/proyectos"),
+        ]);
 
-    return () => clearInterval(interval);
-  }, [destacado.length]);
-
-  const data = async () => {
-    try {
-      const [destacado, noticias, proyectos] = await Promise.all([
-        apiService.fetchData("GET", "api/post/destacado"),
-        apiService.fetchData("GET", "api/destacar/noticias"),
-        apiService.fetchData("GET", "api/destacar/proyectos"),
-      ]);
-
-      if (destacado && noticias && proyectos) {
-        setDestacado(destacado.data);
-        setNoticias(noticias.data);
-        setProyectos(proyectos.data);
-      } else {
-        toast.error("Error en el servidor " + "codigo :" + destacado);
+        if (destacado && noticias && proyectos) {
+          setDestacado(destacado.data);
+          setNoticias(noticias.data);
+          setProyectos(proyectos.data);
+        } else {
+          toast.error("Error en el servidor " + "codigo :" + destacado);
+        }
+      } catch (error) {
+        console.error(error);
       }
-    } catch (error) {
-      console.error(error);
-    }
-  };
-  useEffect(() => {
+    };
+
     data();
   }, []);
 
   return (
-    <div>
-      <article className="contenido">
+    <div style={{ background: "#cbd9e7e3" }}>
+      <article className="contenidoHeader">
         <div className="title">
           <h1>
             Emavra
@@ -57,31 +50,16 @@ const Home = () => {
             </strong>
           </h1>
           <p>
-             Empresa Municipal de Áreas Verdes y Recreación Alternativa
+            Empresa Municipal de Áreas Verdes y Recreación Alternativa
             "EMAVRA".
           </p>
           <section className="acciones">
-            <button onClick={() => navigate("/contactanos")}>
-              Contactanos
-            </button>
+            <button onClick={() => navigate("/contactanos")}>Contactanos</button>
             <button onClick={() => navigate("/Proyectos")}>Proyectos</button>
           </section>
         </div>
-        <div className="slider">
-          {dataImg &&
-            dataImg.slice(0, 4).map((item, i) => (
-              <img
-                key={i}
-                src={item}
-                alt={`imgCarrusel${i + 1}`}
-                className="slider-img"
-                style={{
-                  width: `${currentImageIndex === i ? 300 : 0}px`,
-                  transition: "width 1s ease-in-out",
-                }}
-              />
-            ))}
-        </div>
+        <img src={imgArbol} alt="Img fondo ARBOL" className="imgRojoFundo" />
+        <ImageSlider />
       </article>
 
       <Carrosucel title={"Noticias"} data={noticias} />
@@ -103,7 +81,12 @@ const Home = () => {
         <div className="sliderimg" onClick={() => navigate("/Proyectos")}>
           {proyectos &&
             proyectos.map((item, i) => (
-              <img src={item.multimedia} alt="img" key={i} />
+              <img
+                key={i}
+                src={item.multimedia}
+                alt="img"
+                onError={() => setImageErrors((prevErrors) => ({ ...prevErrors, [i]: true }))}
+              />
             ))}
         </div>
       </section>

@@ -1,15 +1,14 @@
 import React from "react";
-import alcalde from "../../../assets/manfred.jpeg";
+import alcalde from "../../../assets/alcalde.jpg";
 import "../../../styles/style-alcalde.css";
 
 const Alcalde = () => {
   return (
     <section>
       <div className="head-alcalde">
-        <h1>Alcalde</h1>
         <img src={alcalde} alt="Img-Alcalde" />
-      </div>
-      <article className="cuerpo">
+    
+        <article className="cuerpo">
         <p>
           Desde el Gobierno Autónomo Municipal de Cochabamba, estamos impulsando
           políticas para la preservación de la
@@ -50,6 +49,8 @@ const Alcalde = () => {
           ciudad limpia, libre de contaminación ambiental
         </p>
       </article>
+      </div>
+
     </section>
   );
 };

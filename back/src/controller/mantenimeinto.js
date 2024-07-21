@@ -21,7 +21,7 @@ const MantenimeintoController = {
     try {
       const id = Number(req.params.idMan);
       const deletemante = await prisma.manteniemiento.delete({
-        where: { id_noticias: id },
+        where: { id_mantenimiento: id },
       });
       if (deletemante) {
         await prisma.post.delete({
@@ -53,5 +53,24 @@ const MantenimeintoController = {
       capError(error, res);
     }
   },
+  getMantenimientoID: async (req, res) => {
+    try {
+      const id = Number(req.params.idMan);
+      const getM = await prisma.manteniemiento.findMany({
+        where: {
+          postRelacion: {
+            id_post: id,
+          },
+        },
+        include: {
+          postRelacion: true,
+        },
+      });
+
+      res.json(getM);
+    } catch (error) {
+      capError(error, res);
+    }
+  }
 };
 module.exports = MantenimeintoController;

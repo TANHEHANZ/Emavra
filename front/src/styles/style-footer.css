@@ -14,7 +14,6 @@
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-between;
-  margin: 3em auto;
 }
 .footer section > img {
   width: 170px;

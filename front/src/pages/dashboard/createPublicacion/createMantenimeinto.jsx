@@ -15,9 +15,9 @@ const CreateMantenimeinto = () => {
 
   const fetchedproyectos = async () => {
     const proyecto = await apiService.fetchData("GET", "api/mantenimiento");
-    setProyectos(proyecto);
+    setProyectos(proyecto.data);
   };
-
+console.log(proyectosData)
   useEffect(() => {
     fetchedproyectos();
   }, []);
