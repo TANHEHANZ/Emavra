@@ -30,7 +30,14 @@ cd ..
 
 # Instalar dependencias del backend
 cd back
+
 npm install
+
+# configura el .env y migra la bd
+```bash
+npx prisma migrate dev
+```
+
 
 #Uso
 Para iniciar el servidor backend, ejecuta el siguiente comando en la raíz del proyecto:
