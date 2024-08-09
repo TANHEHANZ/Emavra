@@ -3,7 +3,7 @@ import { toast } from "sonner";
 import { uploadFileToCloudinary } from "../services/claudinary";
 import apiService from "../services/endpint";
 
-const HandleSaveFile = ({ editDatos, onFormSubmit }) => {
+const HandleSaveFile = ({ editDatos, onFormSubmit ,descripcion,urlData }) => {
   const [file, setFile] = useState(null);
   const [dataSave, setDataSave] = useState({
     Nombre: "",
@@ -16,7 +16,9 @@ const HandleSaveFile = ({ editDatos, onFormSubmit }) => {
     if (editDatos) {
       setDataSave({
         Nombre: editDatos.Nombre || "",
-        fecha: editDatos.fecha ? new Date(editDatos.fecha).toISOString().split("T")[0] : "",
+        fecha: editDatos.fecha
+          ? new Date(editDatos.fecha).toISOString().split("T")[0]
+          : "",
         Multimedia: editDatos.Multimedia || [],
         Descripcion: editDatos.Descripcion || "",
         tipo: editDatos.tipo || "",
@@ -57,11 +59,13 @@ const HandleSaveFile = ({ editDatos, onFormSubmit }) => {
         toast.success("Archivo subido exitosamente: " + fileUrl);
       }
 
-      const formattedFecha = dataSave.fecha ? new Date(dataSave.fecha).toISOString() : "";
+      const formattedFecha = dataSave.fecha
+        ? new Date(dataSave.fecha).toISOString()
+        : "";
 
       const response = await apiService.fetchData(
         "POST",
-        "api/emavraTransparente",
+        urlData,
         {
           ...dataSave,
           fecha: formattedFecha,
@@ -138,15 +142,19 @@ const HandleSaveFile = ({ editDatos, onFormSubmit }) => {
           </label>
         </div>
       </div>
-      <div>
-        <label htmlFor="descripcion">Descripción</label>
-        <input
-          type="text"
-          name="Descripcion"
-          value={dataSave.Descripcion}
-          onChange={handleInputChange}
-        />
-      </div>
+      {descripcion ? (
+        <div>
+          <label htmlFor="descripcion">Descripción</label>
+          <input
+            type="text"
+            name="Descripcion"
+            value={dataSave.Descripcion}
+            onChange={handleInputChange}
+          />
+        </div>
+      ) : (
+        ""
+      )}
       <button type="submit">{editDatos ? "Editar" : "Guardar"}</button>
     </form>
   );

@@ -1,21 +1,18 @@
 import React, { useEffect, useState } from "react";
-import apiService from "../../services/endpint";
-import TableDash from "../../components/tableDashborad";
-import { theadTransparente } from "../../data/dataprueba";
-import HandleSaveFile from "../../utils/saveFileClaudinary";
+import apiService from "../../../services/endpint";
+import TableDash from "../../../components/tableDashborad";
+import { theadReglamentos } from "../../../data/dataprueba";
+import HandleSaveFile from "../../../utils/saveFileClaudinary";
 import { toast } from "sonner";
 
-const ListEmavraTransparente = () => {
+const FormYReglamentos = () => {
   const [llenarForm, setLlenarForm] = useState(false);
   const [proyectosData, setProyectos] = useState([]);
   const [formDataToEdit, setFormDataToEdit] = useState(null);
   const [tbody, setTbody] = useState([]);
 
   const fetchedproyectos = async () => {
-    const proyecto = await apiService.fetchData(
-      "GET",
-      "api/emavraTransparente"
-    );
+    const proyecto = await apiService.fetchData("GET", "api/reglamento");
     console.log(proyecto);
     setProyectos(proyecto.data);
   };
@@ -45,7 +42,7 @@ const ListEmavraTransparente = () => {
     let id = Number(row.id_transparencia);
     const deleteData = await apiService.fetchData(
       "DELETE",
-      "api/emavraTransparente" + id,
+      "api/reglamento" + id,
       undefined,
       undefined
     );
@@ -57,7 +54,7 @@ const ListEmavraTransparente = () => {
 
   return (
     <div>
-      <h2>Emavra Transparente</h2>
+      <h2>Registrar formunario o reglamentos</h2>
       <section className="containerForm">
         <button onClick={() => setLlenarForm(!llenarForm)}>
           {llenarForm ? "Volver" : "Nuevo Registro"}
@@ -66,15 +63,16 @@ const ListEmavraTransparente = () => {
           <HandleSaveFile
             editDatos={formDataToEdit}
             onFormSubmit={handleFormSubmit}
+            urlData="api/reglamento"
           />
         ) : (
           ""
         )}
-        <section className="table" style={{ width: "75vw" }}>
+        <section className="TableSection" style={{ width: "75vw" }}>
           <table>
             <thead>
               <tr>
-                {theadTransparente.map((item, index) => (
+                {theadReglamentos.map((item, index) => (
                   <th key={index}>{item}</th>
                 ))}
                 <th>Acciones</th>
@@ -85,7 +83,6 @@ const ListEmavraTransparente = () => {
                 <tr key={rowIndex}>
                   <td>{rowIndex + 1}</td>
                   <td>{row.Nombre}</td>
-                  <td>{row.Descripcion}</td>
                   <td>{row.tipo}</td>
                   <td>{row.fecha}</td>
                   <td>
@@ -102,4 +99,4 @@ const ListEmavraTransparente = () => {
   );
 };
 
-export default ListEmavraTransparente;
+export default FormYReglamentos;

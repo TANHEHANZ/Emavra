@@ -1,7 +1,10 @@
 const apiUrl = import.meta.env.VITE_BACKEND_URL;
 
 const apiService = {
+  isLoading: false, 
+
   async fetchData(method, url, body, auth) {
+    this.isLoading = true; 
     try {
       const fetched = await fetch(`${apiUrl}${url}`, {
         method: method,
@@ -20,6 +23,8 @@ const apiService = {
       };
     } catch (error) {
       throw new Error(error.message);
+    } finally {
+      this.isLoading = false; 
     }
   },
 };

@@ -57,15 +57,15 @@ const CreateNoticia = () => {
         ) : (
           ""
         )}
-        <section className="table" style={{ width: "75vw" }}>
-          <TableDash
-            tbody={tbody}
-            thead={thead}
-            onEdit={handleEdit}
-            route={"api/noticias/"}
-            onSuccess={handleFormSubmit}
-
-          />
+        <section className="TableSection" style={{ width: "75vw" }}>
+          <h2></h2>
+            <TableDash
+              tbody={tbody}
+              thead={thead}
+              onEdit={handleEdit}
+              route={"api/noticias/"}
+              onSuccess={handleFormSubmit}
+            />
         </section>
       </section>
     </div>

@@ -146,6 +146,12 @@ export const theadTransparente = [
   "Tipo Archivo",
   "Fecha",
 ];
+export const theadReglamentos = [
+  "#",
+  "Nombre",
+  "Tipo Archivo",
+  "Fecha",
+];
 export const camposTrsparente = [
   { nombre: "nombre", label: "Nombre", tipo: "text" },
   { nombre: "fecha", label: "fecha", tipo: "date" },

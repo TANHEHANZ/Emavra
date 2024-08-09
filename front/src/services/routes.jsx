@@ -1,4 +1,4 @@
-import EmavraTransparente from "../pages/principal/emavraTransparente";
+import EmavraTransparente from "../pages/principal/docuemntos/emavraTransparente";
 import Home from "../pages/principal/home";
 import Noticias from "../pages/principal/noticias";
 import Alcalde from "../pages/principal/informacion/alcalde";
@@ -8,10 +8,12 @@ import Parques from "../pages/principal/ecogestion/parques";
 import Proyectos from "../pages/principal/ecogestion/proyectos";
 import Mantenimiento from "../pages/principal/ecogestion/mantenimiento";
 import Viveros from "../pages/principal/ecogestion/viveros";
+import LuchaCorrupcion from "../pages/principal/docuemntos/luchaCorrupcion";
+import FormularioYreglamento from "../pages/principal/docuemntos/formularioYreglamento";
 
 export const dataRoutes = [
   {
-    name: "inicio",
+    name: "Inicio",
     path: "/",
     component: Home,
   },
@@ -70,8 +72,8 @@ export const dataRoutes = [
 
       {
         name: "Lucha contra la corrupción",
-        path: "proyectos",
-        component: Proyectos,
+        path: "lucha",
+        component: LuchaCorrupcion,
       },
     ],
   },
@@ -79,9 +81,9 @@ export const dataRoutes = [
     name: "Normativa",
     children: [
       {
-        name: "Formulario de reglamento ",
-        path: "normativa",
-        component: Noticias,
+        name: "Formulario y reglamento ",
+        path: "formulario",
+        component: FormularioYreglamento,
       },
     ],
   },

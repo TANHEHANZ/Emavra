@@ -7,37 +7,41 @@ import { useNavigate } from "react-router-dom";
 
 import imgArbol from "../../assets/mundo.png";
 import ImageSlider from "../../components/ImageSlider";
+import SkeletonLoader from "../../components/ui/loader/sketeton";
 
 const Home = () => {
-  const [destacado, setDestacado] = useState([]);
   const [noticias, setNoticias] = useState([]);
   const [proyectos, setProyectos] = useState([]);
-
+  const [loading, setLoading] = useState(apiService.isLoading);
   const navigate = useNavigate();
 
   useEffect(() => {
     const data = async () => {
       try {
-        const [destacado, noticias, proyectos] = await Promise.all([
-          apiService.fetchData("GET", "api/post/destacado"),
+        setLoading(true);
+        const [noticias, proyectos] = await Promise.all([
           apiService.fetchData("GET", "api/destacar/noticias"),
           apiService.fetchData("GET", "api/destacar/proyectos"),
         ]);
 
-        if (destacado && noticias && proyectos) {
-          setDestacado(destacado.data);
+        if (noticias && proyectos) {
           setNoticias(noticias.data);
           setProyectos(proyectos.data);
         } else {
-          toast.error("Error en el servidor " + "codigo :" + destacado);
+          toast.error("Error en el servidor ");
         }
       } catch (error) {
         console.error(error);
+      } finally {
+        setLoading(apiService.isLoading); 
       }
     };
 
     data();
   }, []);
+  if (loading) {
+    return <SkeletonLoader />;
+  }
 
   return (
     <div style={{ background: "#cbd9e7e3" }}>
@@ -50,11 +54,12 @@ const Home = () => {
             </strong>
           </h1>
           <p>
-            Empresa Municipal de Áreas Verdes y Recreación Alternativa
-            "EMAVRA".
+            Empresa Municipal de Áreas Verdes y Recreación Alternativa "EMAVRA".
           </p>
           <section className="acciones">
-            <button onClick={() => navigate("/contactanos")}>Contactanos</button>
+            <button onClick={() => navigate("/contactanos")}>
+              Contactanos
+            </button>
             <button onClick={() => navigate("/Proyectos")}>Proyectos</button>
           </section>
         </div>
@@ -85,7 +90,9 @@ const Home = () => {
                 key={i}
                 src={item.multimedia}
                 alt="img"
-                onError={() => setImageErrors((prevErrors) => ({ ...prevErrors, [i]: true }))}
+                onError={() =>
+                  setImageErrors((prevErrors) => ({ ...prevErrors, [i]: true }))
+                }
               />
             ))}
         </div>

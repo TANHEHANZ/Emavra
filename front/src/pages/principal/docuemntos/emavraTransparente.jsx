@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import "../../styles/style-emavraTransparente.css";
-import Tablebody from "../../components/table";
-import imgPortada from "../../assets/parque1.jpg";
-import apiService from "../../services/endpint";
+import "../../../styles/style-emavraTransparente.css";
+import imgPortada from "../../../assets/ofinicas.jpeg";
+import apiService from "../../../services/endpint";
+import Head from "../../../components/ui/head";
+import Tablebody from "../../../components/table";
 
 const EmavraTransparente = () => {
   const [getData, setGetData] = useState([]);
@@ -19,14 +20,13 @@ const EmavraTransparente = () => {
     fetchdata();
   }, []);
 
- 
-
   return (
     <section>
-      <div className="headTanparente">
-        <div className="informacionTransparente">
-          <h1>Emavra Transparente</h1>
-          <button>Terminos y condiciones</button>
+      <Head>
+        <div>
+          <h1>
+            Emavra <strong>Transparente</strong>{" "}
+          </h1>
           <p>
             ¡Bienvenido a Emavra, tu aliado confiable para el cuidado de
             jardineras y plantas en toda Cochabamba! Somos una empresa dedicada
@@ -35,23 +35,18 @@ const EmavraTransparente = () => {
             salud y la belleza de tus plantas en cada rincón.
           </p>
         </div>
-        <div className="imgTransparente">
-          <img src={imgPortada} alt="" />
-        </div>
-      </div>
+        <img src={imgPortada} alt="img-Proyecto" />
+      </Head>
 
-      <section className="table">
-        <div>
-          <label htmlFor="buscar"> buscar por nombre</label>
-          <input type="text" placeholder="buscar por nombre" />
-        </div>
+      <section className="TableSection">
+        <h2>Documentos de emavra</h2>
+
         <table>
           <thead>
             <tr>
               <th>N#</th>
               <th>Nombre</th>
               <th>Descripcion</th>
-              <th>Tipo de archivo</th>
               <th>Fecha</th>
               <th>Descargar</th>
             </tr>

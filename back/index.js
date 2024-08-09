@@ -12,6 +12,7 @@ const NoticiasRoutes = require("./src/routes/RoutesNoticias");
 const destacarRoutes = require("./src/routes/RoutesDestacados");
 const ParquesRoute = require("./src/routes/RouteParque");
 const EmavraRoute = require("./src/routes/RouteEmavraTransparente");
+const REglamentoRoute = require("./src/routes/RouteReglamentos");
 
 app.use(cors());
 app.use(
@@ -27,6 +28,7 @@ app.use("/api/proyectos", ProyectRoutes);
 app.use("/api/noticias", NoticiasRoutes);
 app.use("/api/parques", ParquesRoute);
 app.use("/api/emavraTransparente", EmavraRoute);
+app.use("/api/reglamento", REglamentoRoute);
 app.use("/api/users", userRoutes);
 app.use("/api/destacar", destacarRoutes);
 

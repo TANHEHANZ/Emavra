@@ -3,6 +3,7 @@ import "../../../styles/style-ecogestion.css";
 import Renderdescription from "../../../components/renderdescription";
 import apiService from "../../../services/endpint";
 import imgPortada from "../../../assets/parque1.jpg";
+import Head from "../../../components/ui/head";
 const Parques = () => {
   const [pasoParam, setPasoParam] = useState("");
   const [parquesAll, setParquesAll] = useState([]);
@@ -18,9 +19,11 @@ const Parques = () => {
 
   return (
     <section style={{ width: "100%" }}>
-      <div className="Head-Ecogestion">
-        <section>
-          <h1>Parques </h1>
+      <Head>
+        <div>
+          <h1>
+            <strong>Parques</strong>{" "}
+          </h1>
           <p>
             ¡Bienvenido a Emavra, tu aliado confiable para el cuidado de
             jardineras y plantas en toda Cochabamba! Somos una empresa dedicada
@@ -28,10 +31,9 @@ const Parques = () => {
             ciudad, brindando servicios expertos de jardinería que garantizan la
             salud y la belleza de tus plantas en cada rincón.
           </p>
-        </section>
-        <img src={imgPortada} alt="" />
-      </div>
-
+        </div>
+        <img src={imgPortada} alt="img-Proyecto" />
+      </Head>
       <section className="todoList">
         <div className="sliderimg">
           {parquesAll.map(

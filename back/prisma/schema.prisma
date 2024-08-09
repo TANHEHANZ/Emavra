@@ -46,6 +46,13 @@ model EmavaTransparente {
   fecha            DateTime
   multimedia       String[]
 }
+model Reglamentos {
+  id_reglamento Int      @id @default(autoincrement())
+  Nombre           String
+  tipo             String
+  fecha            DateTime
+  multimedia       String[]
+}
 
 model Post {
   id_post        Int              @id @default(autoincrement())

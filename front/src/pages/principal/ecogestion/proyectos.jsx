@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Renderdescription from "../../../components/renderdescription";
 import Carrosucel from "../../../components/carrosucel";
-import img from "../../../assets/7.jpg";
+import img from "../../../assets/ofinicas.jpeg";
 import apiService from "../../../services/endpint";
+import Head from "../../../components/ui/head";
 const Proyectos = () => {
   const [pasoParam, setPasoParam] = useState("");
   const [proyectData, setProyectData] = useState([]);
@@ -21,9 +22,11 @@ const Proyectos = () => {
   }, []);
   return (
     <section className="proyectosCuerpo">
-      <div className="Head-Ecogestion">
-        <section>
-          <h1>Proyectos con emavra </h1>
+      <Head >
+        <div>
+          <h1>
+            Proyectos que realiza <strong>Emavra</strong>{" "}
+          </h1>
           <p>
             ¡Bienvenido a Emavra, tu aliado confiable para el cuidado de
             jardineras y plantas en toda Cochabamba! Somos una empresa dedicada
@@ -31,9 +34,10 @@ const Proyectos = () => {
             ciudad, brindando servicios expertos de jardinería que garantizan la
             salud y la belleza de tus plantas en cada rincón.
           </p>
-        </section>
+        </div>
         <img src={img} alt="img-Proyecto" />
-      </div>
+
+      </Head>
       <Carrosucel title={"Proyectos"} data={proyectData} />
 
       <section className="todoList">

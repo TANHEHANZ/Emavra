@@ -20,11 +20,11 @@ const Tablebody = ({ data }) => {
             <td>{i + 1}</td>
             <td>{item.Nombre}</td>
             <td>{item.Descripcion}</td>
-            <td>{item.tipo}</td>
             <td>{formatDate(item.fecha)}</td>
             <td>
               <button onClick={() => handlePreview(item.multimedia)}>
                 <FontAwesomeIcon icon="fa-solid fa-cloud-arrow-down" />
+                <p>{item.tipo}</p>
               </button>
             </td>
           </tr>

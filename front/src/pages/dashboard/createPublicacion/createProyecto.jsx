@@ -56,7 +56,7 @@ const CreateProyecto = () => {
         ) : (
           ""
         )}
-        <section className="table" style={{ width: "75vw" }}>
+        <section className="TableSection" style={{ width: "75vw" }}>
           <TableDash
             tbody={tbody}
             thead={thead}

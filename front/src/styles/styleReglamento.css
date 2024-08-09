@@ -1,0 +1,61 @@
+.HeadReglamento {
+  position: relative;
+  height: 80dvh;
+  width: 100%;
+  display: flex;
+  background-color: #111827;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.HeadReglamento h1 {
+  font-size: xxx-large;
+  color: var(--white);
+  margin-left: 5rem;
+  & strong {
+    color: var(--secondary-color);
+  }
+}
+.HeadReglamento p {
+  margin-left: 5rem;
+  color: #fff9;
+}
+
+.HeadReglamento section {
+  display: flex;
+  flex-wrap: wrap;
+  width: 60%;
+  height: 70vh;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  overflow: auto;
+}
+
+.itemReglamento {
+  color: #fff9;
+  width: 350px;
+  height: auto;
+  border: solid 1px #fff2;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  gap: 0.5rem;
+  & strong {
+    color: rgb(130, 0, 223);
+    text-transform: uppercase;
+  }
+  & button {
+    padding: 4px;
+    border-radius: 4px;
+    border: solid 1px transparent;
+    cursor: pointer;
+    &:hover {
+      border-color: var(--secondary-color);
+      background-color: transparent;
+      color: white;
+    }
+  }
+}
