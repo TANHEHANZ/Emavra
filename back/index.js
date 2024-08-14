@@ -11,6 +11,7 @@ const ManteniemintoRoutes = require("./src/routes/RouteMantenimiento");
 const NoticiasRoutes = require("./src/routes/RoutesNoticias");
 const destacarRoutes = require("./src/routes/RoutesDestacados");
 const ParquesRoute = require("./src/routes/RouteParque");
+const ViveroRoute = require("./src/routes/RouteVivero");
 const EmavraRoute = require("./src/routes/RouteEmavraTransparente");
 const REglamentoRoute = require("./src/routes/RouteReglamentos");
 
@@ -27,6 +28,7 @@ app.use("/api/post", PostRoutes);
 app.use("/api/proyectos", ProyectRoutes);
 app.use("/api/noticias", NoticiasRoutes);
 app.use("/api/parques", ParquesRoute);
+app.use("/api/viveros", ViveroRoute);
 app.use("/api/emavraTransparente", EmavraRoute);
 app.use("/api/reglamento", REglamentoRoute);
 app.use("/api/users", userRoutes);

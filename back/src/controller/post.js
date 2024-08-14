@@ -8,6 +8,7 @@ const PostController = {
     const createProyectos = req.query.Proyectos;
     const createMantenimeinto = req.query.Mantenimeinto;
     const createParques = req.query.Parques;
+    const createViveros = req.query.Viveros;
 
     try {
       const nuevoPost = await prisma.post.create({
@@ -49,7 +50,14 @@ const PostController = {
         });
         message = "Manteniemiento creado exitosamente";
       }
-
+      if (nuevoPost && createViveros === "true") {
+        await prisma.viveros.create({
+          data: {
+            postId: nuevoPost.id_post,
+          },
+        });
+        message = "vivero creado exitosamente";
+      }
       res.status(200).json({ message, data });
     } catch (error) {
       console.error("Error al crear el post:", error);

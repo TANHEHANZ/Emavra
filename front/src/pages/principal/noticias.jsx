@@ -4,6 +4,7 @@ import "../../styles/style-noticias.css";
 import PostDetalle from "./postDetalle";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
+import SkeletonLoader from "../../components/ui/loader/sketeton";
 
 const Noticias = () => {
   const [noti, setNoti] = useState([]);
@@ -42,7 +43,7 @@ const Noticias = () => {
   };
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <SkeletonLoader />;
   }
 
   if (error) {

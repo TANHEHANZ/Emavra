@@ -57,6 +57,11 @@ export const dataRoutes = [
         path: "mantenimiento",
         component: Mantenimiento,
       },
+      {
+        name: "Viveros",
+        path: "viveros",
+        component: Viveros,
+      },
     ],
   },
   {

@@ -38,6 +38,12 @@ model Parques {
   postRelacion Post @relation(fields: [postId], references: [id_post])
 }
 
+model Viveros {
+  id_vivero    Int  @id @default(autoincrement())
+  postId       Int
+  postRelacion Post @relation(fields: [postId], references: [id_post])
+}
+
 model EmavaTransparente {
   id_transparencia Int      @id @default(autoincrement())
   Nombre           String
@@ -46,12 +52,13 @@ model EmavaTransparente {
   fecha            DateTime
   multimedia       String[]
 }
+
 model Reglamentos {
   id_reglamento Int      @id @default(autoincrement())
-  Nombre           String
-  tipo             String
-  fecha            DateTime
-  multimedia       String[]
+  Nombre        String
+  tipo          String
+  fecha         DateTime
+  multimedia    String[]
 }
 
 model Post {
@@ -71,4 +78,5 @@ model Post {
   User           User?            @relation(fields: [userId_user], references: [id_user])
   userId_user    Int?
   Parques        Parques[]
+  Viveros        Viveros[]
 }

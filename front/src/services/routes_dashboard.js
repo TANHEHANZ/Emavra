@@ -5,6 +5,7 @@ import CreateMantenimeinto from "../pages/dashboard/createPublicacion/createMant
 import CreateParques from "../pages/dashboard/createPublicacion/createParque";
 import ListEmavra from "../pages/dashboard/managmenDocument/listEmavraTransparente";
 import FormYReglamentos from "../pages/dashboard/managmenDocument/formYReglamentos";
+import Createviveros from "../pages/dashboard/createPublicacion/Createviveros";
 
 export const dataRoutesDashboard = [
   {
@@ -31,6 +32,11 @@ export const dataRoutesDashboard = [
         name: "Parques",
         path: "list-parques",
         component: CreateParques,
+      },
+      {
+        name: "Viveros",
+        path: "list-vivero",
+        component: Createviveros,
       },
     ],
   },
