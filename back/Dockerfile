@@ -5,6 +5,7 @@ RUN mkdir /code
 WORKDIR /code
 
 COPY package.json .
+COPY prisma ./prisma
 RUN npm install
 
 FROM node:20.11.1-alpine as prod
