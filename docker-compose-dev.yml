@@ -22,7 +22,6 @@ services:
       - emavradev-net
     volumes:
       - ./back/:/code
-      - /code/node_modules
 networks:
   emavradev-net:
     driver: bridge
