@@ -3,7 +3,7 @@ services:
   frontend:
     container_name: frontend-dev
     build:
-      context: ./front      
+      context: ./front
     restart: always
     networks:
       - emavradev-net
@@ -17,7 +17,7 @@ services:
       - 82:8000
     restart: always
     command: >
-      sh -c "npx prisma db push && npx prisma migrate dev && npm start "
+      sh -c "npx prisma db push  && npm start "
     networks:
       - emavradev-net
     volumes:
